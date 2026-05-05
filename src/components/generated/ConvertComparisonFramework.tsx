@@ -3741,13 +3741,11 @@ export const ConvertComparisonFramework = () => {
     }
   };
   return <>
-    <div className="min-h-screen bg-background text-foreground font-sans p-3 md:p-8" style={{
+    <div className="min-h-screen bg-background text-foreground font-sans" style={{
     fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
   }}>
-      <div className="max-w-[1800px] mx-auto">
-        <main className="bg-card rounded-lg shadow-lg overflow-hidden" style={{
-        border: '2px solid #cfd9e6',
-        borderRadius: '8px',
+      <div className="h-full">
+        <main className="bg-card min-h-screen overflow-hidden" style={{
         fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
       }}>
           <AnimatePresence mode="wait">
@@ -3761,50 +3759,29 @@ export const ConvertComparisonFramework = () => {
           }} exit={{
             opacity: 0,
             y: -10
-          }} className="p-5 md:p-10" style={{
+          }} className="p-8 md:p-16" style={{
             fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
           }}>
-                <div className="max-w-5xl mx-auto">
-                  <span className="block mb-3" style={{
-                fontSize: '10px',
-                fontWeight: 600,
-                color: '#0066FF',
-                textTransform: 'uppercase',
-                letterSpacing: '0.08em',
-                borderLeft: '2px solid #0066FF',
-                paddingLeft: '8px',
-                fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
-              }}>Configure Comparison</span>
+                <div style={{ maxWidth: '960px' }}>
                   <h1 style={{
-                fontSize: '36px',
+                fontSize: '28px',
                 fontWeight: 600,
                 color: '#2A3442',
-                letterSpacing: '-1px',
-                marginBottom: '10px',
+                letterSpacing: '-0.5px',
+                marginBottom: '32px',
                 lineHeight: 1.1,
                 fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
-              }}>Select competitors and evaluation dimensions</h1>
-                  <p style={{
-                fontSize: '15px',
-                color: '#647790',
-                marginBottom: '32px',
-                lineHeight: 1.6,
-                fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
-              }}>Choose which alternatives to benchmark against Convert (baseline), then which dimensions to evaluate. Leave either empty to include all.</p>
+              }}>Build your comparison</h1>
                   <div className="flex flex-col gap-5 md:gap-6">
                     {/* Competitors */}
                     <div>
-                      <div className="flex items-center justify-between mb-3 md:mb-4">
-                        <h3 style={{
-                      fontSize: '10px',
+                      <div className="flex items-center justify-between mb-3">
+                        <span style={{
+                      fontSize: '13px',
                       fontWeight: 600,
                       color: '#2A3442',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.10em',
-                      borderLeft: '2px solid #2A3442',
-                      paddingLeft: '8px',
                       fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
-                    }}>1 — Alternatives</h3>
+                    }}>Alternatives</span>
                         <div className="flex gap-2 items-center">
                           <button onClick={selectAllCompetitors} style={{
                         fontSize: '11px',
@@ -3831,57 +3808,41 @@ export const ConvertComparisonFramework = () => {
                       }} className="hover:underline">Deselect all</button>
                         </div>
                       </div>
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                      <div className="grid grid-cols-4 gap-2">
                         {COMPETITORS.map(comp => <button key={comp.id} onClick={() => toggleCompetitor(comp.id)} style={{
                       display: 'flex',
                       alignItems: 'center',
+                      justifyContent: 'center',
                       gap: '6px',
-                      padding: '7px 12px',
+                      height: '48px',
                       borderRadius: '8px',
-                      border: selectedCompetitors.includes(comp.id) ? '1px solid #0066FF' : '1px solid #E2E8F0',
+                      border: selectedCompetitors.includes(comp.id) ? '1.5px solid #0066FF' : '1px solid #E2E8F0',
                       background: selectedCompetitors.includes(comp.id) ? '#EEF4FF' : '#ffffff',
                       cursor: 'pointer',
                       fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif',
                       fontSize: '13px',
                       fontWeight: 500,
-                      color: '#2A3442',
+                      color: selectedCompetitors.includes(comp.id) ? '#0066FF' : '#2A3442',
                       transition: 'all 0.15s',
                     }} onMouseEnter={e => {
                       if (!selectedCompetitors.includes(comp.id)) (e.currentTarget as HTMLButtonElement).style.background = '#F8FAFC';
                     }} onMouseLeave={e => {
                       if (!selectedCompetitors.includes(comp.id)) (e.currentTarget as HTMLButtonElement).style.background = '#ffffff';
                     }}>
-                            {selectedCompetitors.includes(comp.id) && <div style={{
-                        width: '14px',
-                        height: '14px',
-                        borderRadius: '3px',
-                        background: '#0066FF',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0
-                      }}>
-                                <Check className="w-2.5 h-2.5" style={{
-                          color: '#ffffff'
-                        }} />
-                              </div>}
+                            {selectedCompetitors.includes(comp.id) && <Check className="w-3 h-3" style={{ color: '#0066FF', flexShrink: 0 }} />}
                             <span>{comp.name}</span>
                           </button>)}
                       </div>
                     </div>
                     {/* Dimensions */}
                     <div>
-                      <div className="flex items-center justify-between mb-3 md:mb-4">
-                        <h3 style={{
-                      fontSize: '10px',
+                      <div className="flex items-center justify-between mb-3">
+                        <span style={{
+                      fontSize: '13px',
                       fontWeight: 600,
                       color: '#2A3442',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.10em',
-                      borderLeft: '2px solid #2A3442',
-                      paddingLeft: '8px',
                       fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
-                    }}>2 — Dimensions</h3>
+                    }}>Dimensions</span>
                         <div className="flex gap-2 items-center">
                           <button onClick={selectAllDimensions} style={{
                         fontSize: '11px',
@@ -3908,43 +3869,33 @@ export const ConvertComparisonFramework = () => {
                       }} className="hover:underline">Deselect all</button>
                         </div>
                       </div>
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                      <div className="grid grid-cols-5 gap-3">
                         {DIMENSIONS.map(dim => <button key={dim.id} onClick={() => toggleDimension(dim.id)} style={{
                       display: 'flex',
+                      flexDirection: 'column',
                       alignItems: 'center',
-                      gap: '8px',
-                      padding: '7px 12px',
-                      borderRadius: '8px',
-                      border: selectedDimensions.includes(dim.id) ? '1px solid rgba(109,40,217,0.35)' : '1px solid #E2E8F0',
+                      justifyContent: 'center',
+                      gap: '10px',
+                      padding: '20px 12px',
+                      borderRadius: '10px',
+                      border: selectedDimensions.includes(dim.id) ? '1.5px solid rgba(109,40,217,0.5)' : '1px solid #E2E8F0',
                       background: selectedDimensions.includes(dim.id) ? '#F3EEFF' : '#ffffff',
                       cursor: 'pointer',
                       fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif',
                       fontSize: '13px',
                       fontWeight: 500,
-                      color: '#2A3442',
+                      color: selectedDimensions.includes(dim.id) ? '#6D28D9' : '#2A3442',
                       transition: 'all 0.15s',
+                      position: 'relative',
                     }} onMouseEnter={e => {
                       if (!selectedDimensions.includes(dim.id)) (e.currentTarget as HTMLButtonElement).style.background = '#F8FAFC';
                     }} onMouseLeave={e => {
                       if (!selectedDimensions.includes(dim.id)) (e.currentTarget as HTMLButtonElement).style.background = '#ffffff';
                     }}>
-                            <div style={{
-                        width: '24px',
-                        height: '24px',
-                        borderRadius: '6px',
-                        background: selectedDimensions.includes(dim.id) ? '#6D28D9' : '#0066FF',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0
-                      }}>
-                                <div style={{
-                          color: '#ffffff',
-                          display: 'flex'
-                        }}>{dim.icon}</div>
-                              </div>
-                            <span>{dim.label}</span>
                             {selectedDimensions.includes(dim.id) && <div style={{
+                        position: 'absolute',
+                        top: '8px',
+                        right: '8px',
                         width: '14px',
                         height: '14px',
                         borderRadius: '3px',
@@ -3952,12 +3903,22 @@ export const ConvertComparisonFramework = () => {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
+                      }}>
+                                <Check className="w-2.5 h-2.5" style={{ color: '#ffffff' }} />
+                              </div>}
+                            <div style={{
+                        width: '36px',
+                        height: '36px',
+                        borderRadius: '9px',
+                        background: selectedDimensions.includes(dim.id) ? '#6D28D9' : '#0066FF',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
                         flexShrink: 0
                       }}>
-                                <Check className="w-2.5 h-2.5" style={{
-                          color: '#ffffff'
-                        }} />
-                              </div>}
+                                <div style={{ color: '#ffffff', display: 'flex' }}>{dim.icon}</div>
+                              </div>
+                            <span style={{ textAlign: 'center', lineHeight: 1.3 }}>{dim.label}</span>
                           </button>)}
                       </div>
                     </div>
