@@ -4017,9 +4017,9 @@ export const ConvertComparisonFramework = () => {
             opacity: 0
           }} animate={{
             opacity: 1
-          }} className="flex h-[88vh] md:h-[85vh]" style={{
+          }} className="flex items-center justify-center h-screen p-4" style={{
             fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
-          }}>
+          }}><div className="flex w-full h-full rounded-xl overflow-hidden shadow-lg border border-gray-200/60" style={{ maxHeight: 'calc(100vh - 32px)' }}>
                 {/* ── MOBILE VIEW ── */}
                 {isMobile && <div className="flex-1 flex flex-col overflow-hidden" style={{
               fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
@@ -4045,12 +4045,12 @@ export const ConvertComparisonFramework = () => {
                 }} className="border-r border-gray-200 bg-muted overflow-hidden flex-shrink-0" style={{
                   fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
                 }}>
-                          <div className="p-2 border-b border-gray-200 bg-card flex items-center justify-between">
+                          <div className="p-2 border-b border-gray-200 bg-card flex items-center justify-between" style={{ minHeight: '54.5px', boxSizing: 'border-box' }}>
                             <span className="text-[10px] font-bold uppercase tracking-widest" style={{
                       color: '#647790',
                       fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
                     }}>Filters</span>
-                            <button onClick={() => setSidebarOpen(false)} className="text-muted-foreground hover:text-foreground px-2 py-1 rounded-lg hover:bg-muted border-2 border-border font-bold"><ChevronLeft className="w-4 h-4" /></button>
+                            <button onClick={() => setSidebarOpen(false)} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '8px 10px', background: '#ffffff', border: '1.5px solid #CFD9E6', borderRadius: '10px', cursor: 'pointer', color: '#647790' }}><ChevronLeft style={{ width: '16px', height: '16px' }} /></button>
                           </div>
                           <div className="overflow-y-auto h-full p-3 space-y-6 pb-20">
                             {/* Competitors */}
@@ -4381,7 +4381,7 @@ export const ConvertComparisonFramework = () => {
                       </div>
                     </div>
                   </>}
-              </motion.div>}
+              </div></motion.div>}
           </AnimatePresence>
         </main>
       </div>
