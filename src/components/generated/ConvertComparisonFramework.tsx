@@ -138,6 +138,19 @@ const COMPETITORS: Competitor[] = [{
     id: 'amp-enterprise',
     name: 'Enterprise'
   }]
+}, {
+  id: 'shoplift',
+  name: 'Shoplift',
+  plans: [{
+    id: 'sl-core',
+    name: 'Core'
+  }, {
+    id: 'sl-advanced',
+    name: 'Advanced'
+  }, {
+    id: 'sl-pro',
+    name: 'Pro'
+  }]
 }];
 const CONVERT_PLANS: PlanData[] = [{
   id: 'convert-growth',
@@ -178,7 +191,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Up to 50k MTUs',
     'amp-plus': 'Up to 300k MTUs',
     'amp-growth': 'Custom MTU Volume',
-    'amp-enterprise': 'Custom MTU Volume'
+    'amp-enterprise': 'Custom MTU Volume',
+    'sl-core': 'Up to 100k store visitors',
+    'sl-advanced': 'Up to 1m store visitors',
+    'sl-pro': 'Up to 1m store visitors — gated thereafter'
   }
 }, {
   attribute: 'Price per month (monthly plan)',
@@ -204,7 +220,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Free',
     'amp-plus': '$61 (1k MTUs) - $3150 (300k MTUs)',
     'amp-growth': 'Contact Sales for pricing',
-    'amp-enterprise': 'Contact Sales for pricing'
+    'amp-enterprise': 'Contact Sales for pricing',
+    'sl-core': '$99/mo - $199/mo',
+    'sl-advanced': '$399/mo - $999/mo',
+    'sl-pro': 'Annual only'
   }
 }, {
   attribute: 'Price per month (annual plan)',
@@ -231,7 +250,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Free',
     'amp-plus': '$49 (1k MTUs) - $2520 (300k MTUs)',
     'amp-growth': 'Contact Sales for pricing',
-    'amp-enterprise': 'Contact Sales for pricing'
+    'amp-enterprise': 'Contact Sales for pricing',
+    'sl-core': '$74/mo - $149/mo',
+    'sl-advanced': '$299/mo - $749/mo, then gated',
+    'sl-pro': '$699/mo - $1499/mo, then gated'
   }
 }, {
   attribute: 'Annual price for whole year',
@@ -258,7 +280,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Free',
     'amp-plus': '$588 - $30,240',
     'amp-growth': 'Contact Sales for pricing',
-    'amp-enterprise': 'Contact Sales for pricing'
+    'amp-enterprise': 'Contact Sales for pricing',
+    'sl-core': '$888/yr - $1788/yr',
+    'sl-advanced': '$3588/yr - $8988/yr',
+    'sl-pro': '$8388/yr - $17988/yr'
   }
 }, {
   attribute: 'Forced plan upgrades',
@@ -285,7 +310,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'Discounts 2 years',
@@ -311,7 +339,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': 'Unknown',
+    'sl-advanced': 'Unknown',
+    'sl-pro': 'Unknown'
   }
 }, {
   attribute: 'Discounts 3 years',
@@ -337,7 +368,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': 'Unknown',
+    'sl-advanced': 'Unknown',
+    'sl-pro': 'Unknown'
   }
 }, {
   attribute: 'Auto-upgrade',
@@ -364,7 +398,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'If data sent is over limit, user loses access to their account',
     'amp-plus': 'Dependent on Amplitude Analytics plan',
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': 'No (tests pause)',
+    'sl-advanced': 'No (tests pause)',
+    'sl-pro': 'No (tests pause)'
   }
 },
 // ─── SCALE ──────────────────────────────────────────────────────────────────
@@ -392,7 +429,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': '1 year',
     'amp-plus': '2 years',
     'amp-growth': 'Unlimited',
-    'amp-enterprise': 'Unlimited'
+    'amp-enterprise': 'Unlimited',
+    'sl-core': 'Unknown',
+    'sl-advanced': 'Unknown',
+    'sl-pro': 'Unknown'
   }
 }, {
   attribute: 'Number of Active Domains for A/B testing',
@@ -418,7 +458,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unlimited',
     'amp-plus': 'Not available',
     'amp-growth': 'Unlimited',
-    'amp-enterprise': 'Unlimited'
+    'amp-enterprise': 'Unlimited',
+    'sl-core': '1 (Shopify store)',
+    'sl-advanced': '1 (Shopify store)',
+    'sl-pro': '1 (Shopify store)'
   }
 }, {
   attribute: 'Unlimited sub-domains',
@@ -444,7 +487,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': 'Unknown',
+    'sl-advanced': 'Unknown',
+    'sl-pro': 'Unknown'
   }
 }, {
   attribute: 'Custom domains (CNAME)',
@@ -470,7 +516,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': 'Unknown',
+    'sl-advanced': 'Unknown',
+    'sl-pro': 'Unknown'
   }
 }, {
   attribute: 'Unlimited Tests',
@@ -496,7 +545,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Unlimited Variations',
@@ -522,7 +574,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Active goals',
@@ -548,7 +603,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': 'Unknown',
+    'sl-advanced': 'Unknown',
+    'sl-pro': 'Unknown'
   }
 }, {
   attribute: 'No. of Active Experiences',
@@ -574,7 +632,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': 'Unlimited',
+    'sl-advanced': 'Unlimited',
+    'sl-pro': 'Unlimited'
   }
 }, {
   attribute: 'Number of Active Projects',
@@ -600,7 +661,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': '5',
     'amp-plus': '5',
     'amp-growth': '50',
-    'amp-enterprise': '200'
+    'amp-enterprise': '200',
+    'sl-core': 'N/A',
+    'sl-advanced': 'N/A',
+    'sl-pro': 'N/A'
   }
 }, {
   attribute: 'Unlimited Collaborators',
@@ -626,7 +690,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Deploys',
@@ -653,7 +720,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': false,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': 'N/A',
+    'sl-advanced': 'N/A',
+    'sl-pro': 'N/A'
   }
 },
 // ─── FEATURES ────────────────────────────────────────────────────────────────
@@ -681,7 +751,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Split URL Testing',
@@ -707,7 +780,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Multipage Testing',
@@ -733,7 +809,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Multivariate Testing',
@@ -759,7 +838,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'Full Stack & Feature Flags',
@@ -785,7 +867,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'Multi-armed bandit',
@@ -812,7 +897,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'Mobile App Testing',
@@ -838,7 +926,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'Visual Editor',
@@ -864,7 +955,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Advanced Code Editor',
@@ -890,7 +984,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': false,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Unique JS/CSS per Variation',
@@ -917,7 +1014,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': false,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Unique JS/CSS per Experiment',
@@ -944,7 +1044,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Unique JS/CSS per Project',
@@ -971,7 +1074,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': 'N/A',
+    'sl-advanced': 'N/A',
+    'sl-pro': 'N/A'
   }
 }, {
   attribute: 'Traffic Source Targeting',
@@ -997,7 +1103,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': false,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Time of Day Targeting',
@@ -1023,7 +1132,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'Language Targeting',
@@ -1049,7 +1161,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'IP Targeting',
@@ -1075,7 +1190,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': false,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'Geo Targeting',
@@ -1101,7 +1219,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': false,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Cookie Targeting',
@@ -1127,7 +1248,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'Custom Javascript Targeting',
@@ -1153,7 +1277,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': false,
+    'sl-advanced': 'Yes — JS API',
+    'sl-pro': 'Yes — JS API'
   }
 }, {
   attribute: 'Custom Tag Targeting',
@@ -1179,7 +1306,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'Advanced / Custom Targeting',
@@ -1206,7 +1336,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': false,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'AND/OR Audience',
@@ -1233,7 +1366,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': false,
     'amp-growth': false,
-    'amp-enterprise': false
+    'amp-enterprise': false,
+    'sl-core': false,
+    'sl-advanced': 'Yes — OR logic',
+    'sl-pro': 'Yes — OR logic'
   }
 }, {
   attribute: 'Custom segments per project',
@@ -1259,7 +1395,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': 'N/A',
+    'sl-advanced': 'N/A',
+    'sl-pro': 'N/A'
   }
 }, {
   attribute: 'Advanced rule builder',
@@ -1286,7 +1425,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': false,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Post Segmentation',
@@ -1312,7 +1454,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Collision Prevention',
@@ -1339,7 +1484,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': false,
     'amp-growth': false,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': 'Unknown',
+    'sl-advanced': 'Unknown',
+    'sl-pro': 'Unknown'
   }
 }, {
   attribute: 'Personalize experiences for segments',
@@ -1365,7 +1513,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Amplitude Audiences required',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': false,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Personalize experiences with behavior based targeting',
@@ -1391,7 +1542,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Amplitude Audiences required',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Frequentist & Bayesian Stats Engine',
@@ -1417,7 +1571,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Sequential Testing or T Test',
     'amp-plus': 'Sequential Testing or T Test',
     'amp-growth': 'Sequential Testing or T Test',
-    'amp-enterprise': 'Sequential Testing or T Test'
+    'amp-enterprise': 'Sequential Testing or T Test',
+    'sl-core': 'Bayesian only',
+    'sl-advanced': 'Bayesian only',
+    'sl-pro': 'Bayesian only'
   }
 }, {
   attribute: 'Sequential Testing',
@@ -1444,7 +1601,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': 'Unknown',
+    'sl-advanced': 'Unknown',
+    'sl-pro': 'Unknown'
   }
 }, {
   attribute: 'Cross-domain Testing and Tracking',
@@ -1470,7 +1630,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'Dynamic Revenue Tracking',
@@ -1496,7 +1659,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Google Analytics Goal Import',
@@ -1522,7 +1688,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': false,
+    'sl-advanced': 'Yes — GA4 Beta',
+    'sl-pro': 'Yes — GA4 Beta'
   }
 }, {
   attribute: 'GA Automatic Revenue Tracking',
@@ -1548,7 +1717,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': false,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Advanced Goals',
@@ -1574,7 +1746,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'Real-Time Reports',
@@ -1601,7 +1776,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Real Time Results',
@@ -1627,7 +1805,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Live Duration Insights',
@@ -1654,7 +1835,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': false,
     'amp-growth': false,
-    'amp-enterprise': false
+    'amp-enterprise': false,
+    'sl-core': 'N/A',
+    'sl-advanced': 'N/A',
+    'sl-pro': 'N/A'
   }
 }, {
   attribute: 'Reports CSV Export',
@@ -1680,7 +1864,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': false,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Raw test data export',
@@ -1706,7 +1893,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Remove Report Data',
@@ -1733,7 +1923,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': false,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': 'Unknown',
+    'sl-advanced': 'Unknown',
+    'sl-pro': 'Unknown'
   }
 }, {
   attribute: 'Import & Export Templates',
@@ -1759,7 +1952,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': 'Unknown',
+    'sl-advanced': 'Unknown',
+    'sl-pro': 'Unknown'
   }
 }, {
   attribute: 'Anti-flicker protection',
@@ -1785,7 +1981,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Javascript Event Pushing',
@@ -1811,7 +2010,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': false,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Manual Activation',
@@ -1838,7 +2040,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Dynamic web triggers',
@@ -1865,7 +2070,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': false,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': 'Unknown',
+    'sl-advanced': 'Unknown',
+    'sl-pro': 'Unknown'
   }
 }, {
   attribute: 'Traffic Allocation across projects',
@@ -1892,7 +2100,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': 'N/A',
+    'sl-advanced': 'N/A',
+    'sl-pro': 'N/A'
   }
 }, {
   attribute: 'Traffic Allocation availability for agencies',
@@ -1918,7 +2129,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': 'N/A',
+    'sl-advanced': 'N/A',
+    'sl-pro': 'N/A'
   }
 }, {
   attribute: 'QA Wizard',
@@ -1945,7 +2159,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': 'Yes — Preview Mode',
+    'sl-advanced': 'Yes — Preview Mode',
+    'sl-pro': 'Yes — Preview Mode'
   }
 }, {
   attribute: 'Environments',
@@ -1972,7 +2189,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'Projects available to agencies',
@@ -1998,7 +2218,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': 'N/A',
+    'sl-advanced': 'N/A',
+    'sl-pro': 'N/A'
   }
 }, {
   attribute: 'Bulk Editing',
@@ -2025,7 +2248,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'Data segregation',
@@ -2052,7 +2278,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': false,
     'amp-growth': false,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'SRM Checks',
@@ -2079,7 +2308,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': 'Unknown',
+    'sl-advanced': 'Unknown',
+    'sl-pro': 'Unknown'
   }
 }, {
   attribute: 'Knowledge base',
@@ -2106,7 +2338,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'Add observations',
@@ -2133,7 +2368,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'Change History',
@@ -2159,7 +2397,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': 'Unknown',
+    'sl-advanced': 'Unknown',
+    'sl-pro': 'Unknown'
   }
 }, {
   attribute: 'Live Log',
@@ -2186,7 +2427,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': 'Unknown',
+    'sl-advanced': 'Unknown',
+    'sl-pro': 'Unknown'
   }
 }, {
   attribute: 'API Access',
@@ -2212,7 +2456,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': false,
+    'sl-advanced': 'Yes — JS API',
+    'sl-pro': 'Yes — JS API'
   }
 }, {
   attribute: 'Easy One Tag Integrations',
@@ -2238,7 +2485,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'For some integrations there are modals that allow you to easily integrate with selected apps',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Number of 3rd party integrations',
@@ -2264,7 +2514,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': '143',
     'amp-plus': '143',
     'amp-growth': '143',
-    'amp-enterprise': '143'
+    'amp-enterprise': '143',
+    'sl-core': '10+',
+    'sl-advanced': '10+',
+    'sl-pro': '10+'
   }
 }, {
   attribute: 'Experiment Heatmaps',
@@ -2290,7 +2543,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': false,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'Custom Popups',
@@ -2317,7 +2573,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'Convert Signals™',
@@ -2344,7 +2603,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': false,
     'amp-growth': false,
-    'amp-enterprise': false
+    'amp-enterprise': false,
+    'sl-core': 'N/A',
+    'sl-advanced': 'N/A',
+    'sl-pro': 'N/A'
   }
 },
 // ─── GOVERNANCE ──────────────────────────────────────────────────────────────
@@ -2372,7 +2634,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'ISO 27001 Certified',
@@ -2398,7 +2663,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'PCI-DSS compliance',
@@ -2424,7 +2692,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': 'Unknown',
+    'sl-advanced': 'Unknown',
+    'sl-pro': 'Unknown'
   }
 }, {
   attribute: 'Single Sign On (SSO)',
@@ -2450,7 +2721,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': false,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': 'Login via Shopify',
+    'sl-advanced': 'Unknown',
+    'sl-pro': 'Unknown'
   }
 }, {
   attribute: 'Role Based Permissions',
@@ -2476,7 +2750,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': 'Unknown',
+    'sl-advanced': 'Unknown',
+    'sl-pro': 'Unknown'
   }
 }, {
   attribute: 'Bring your own ID (BYOID)',
@@ -2503,7 +2780,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'EU based servers',
@@ -2529,7 +2809,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'Third Party cookies',
@@ -2555,7 +2838,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': 'Unknown',
+    'sl-advanced': 'Unknown',
+    'sl-pro': 'Unknown'
   }
 }, {
   attribute: 'Do Not Track Browser',
@@ -2582,7 +2868,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Data Protection Addendum',
@@ -2608,7 +2897,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Non-PII Cookie lifetime',
@@ -2634,7 +2926,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Not specified in Privacy policy',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': 'Unknown',
+    'sl-advanced': 'Unknown',
+    'sl-pro': 'Unknown'
   }
 }, {
   attribute: 'Version Control for Tracking Script',
@@ -2661,7 +2956,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': 'Unknown',
     'amp-plus': 'Unknown',
     'amp-growth': 'Unknown',
-    'amp-enterprise': 'Unknown'
+    'amp-enterprise': 'Unknown',
+    'sl-core': 'Yes — GitHub compatible',
+    'sl-advanced': 'Yes — GitHub compatible',
+    'sl-pro': 'Yes — GitHub compatible'
   }
 }, {
   attribute: 'Support Opt Out Feature',
@@ -2687,7 +2985,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': true,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 },
 // ─── SUPPORT ─────────────────────────────────────────────────────────────────
@@ -2715,7 +3016,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Chat support',
@@ -2741,7 +3045,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': true,
     'amp-growth': true,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': true,
+    'sl-advanced': true,
+    'sl-pro': true
   }
 }, {
   attribute: 'Phone support',
@@ -2767,7 +3074,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': false,
     'amp-growth': false,
-    'amp-enterprise': false
+    'amp-enterprise': false,
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': false
   }
 }, {
   attribute: 'Dedicated account manager',
@@ -2793,7 +3103,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': false,
     'amp-growth': false,
-    'amp-enterprise': true
+    'amp-enterprise': true,
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': true
   }
 }, {
   attribute: 'Premium Onboarding',
@@ -2819,7 +3132,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-starter': false,
     'amp-plus': false,
     'amp-growth': false,
-    'amp-enterprise': false
+    'amp-enterprise': false,
+    'sl-core': false,
+    'sl-advanced': false,
+    'sl-pro': true
   }
 }];
 
