@@ -208,6 +208,8 @@ The preview server is registered in `/Users/nahuelmz/Convert/.claude/launch.json
 
 **Never run a build** after making changes — the user does not want builds triggered automatically.
 
+**Human-in-the-loop before every push** — after making changes and verifying locally, ALWAYS stop and show the result to the user before committing or pushing. Never commit/push without explicit user approval ("dale", "ok", "commitealo", etc.).
+
 ---
 
 ## Before committing — local test checklist

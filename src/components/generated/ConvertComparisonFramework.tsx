@@ -3745,8 +3745,13 @@ export const ConvertComparisonFramework = () => {
     fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
   }}>
       <div className="h-full">
-        <main className="bg-card min-h-screen overflow-hidden" style={{
-        fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
+        <main className="min-h-screen overflow-hidden" style={{
+        fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif',
+        backgroundImage: 'url(/newbgHome.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
+        backgroundColor: '#FAFAF7'
       }}>
           <AnimatePresence mode="wait">
             {/* ── SETUP SCREEN ── */}
@@ -3760,18 +3765,40 @@ export const ConvertComparisonFramework = () => {
             opacity: 0,
             y: -10
           }} className="p-8 md:p-16" style={{
-            fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
+            fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif',
+            background: 'rgba(255,255,255,0.5)',
+            backdropFilter: 'blur(0px)',
+            minHeight: '100vh'
           }}>
-                <div style={{ maxWidth: '960px' }}>
+                <div>
+                  <svg className="block mb-5" style={{ height: '26px', width: 'auto' }} viewBox="0 0 325 71" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Convert">
+                    <path d="M38.6124 53.144H48.7255C47.2398 58.782 44.4059 63.0753 40.2301 66.0269C36.0475 69.1133 30.7958 70.6492 24.4614 70.6492C16.7767 70.6492 10.7821 68.1719 6.46758 63.2096C2.15303 58.3817 0 51.4657 0 42.4694C0 33.8862 2.08261 27.1776 6.26648 22.3513C10.573 17.3857 16.5756 14.8948 24.259 14.8948C32.3523 14.8948 38.6124 17.3152 43.0636 22.1431C45.4885 25.0968 47.2398 28.5189 48.3233 32.4055H34.1664C33.4905 31.0706 32.819 30.0684 32.1512 29.3897C30.3855 27.5104 27.8995 26.5695 24.6693 26.5695C21.6958 26.5695 19.2708 27.5104 17.388 29.3897C14.9626 32.0744 13.7488 36.513 13.7488 42.6827C13.7488 48.8503 14.9626 53.2078 17.388 55.759C19.1308 57.904 21.7568 58.9763 25.2734 58.9763C27.5652 58.9763 29.509 58.5126 31.1364 57.5712C31.5403 57.4399 31.9068 57.2 32.2416 56.8668C32.5822 56.5243 32.9488 56.159 33.3607 55.759C33.6242 55.3528 34.1664 54.8215 34.9703 54.1492C35.7921 53.4836 36.9995 53.144 38.6124 53.144Z" fill="#475569"/>
+                    <path fillRule="evenodd" clipRule="evenodd" d="M52.3307 55.0618C53.5398 59.1558 55.5694 62.4051 58.3961 64.8195C61.0913 67.2335 64.705 68.9469 69.2198 69.9452C73.7291 70.9597 78.2171 70.8642 82.6632 69.6505C87.6434 68.5748 91.7568 65.8217 95.0082 61.397C96.4731 59.2521 97.6966 56.6396 98.641 53.5533C99.5781 50.4674 100.051 46.7759 100.051 42.4694C100.051 36.5692 98.8981 31.4097 96.6046 26.9774C94.1881 22.0181 90.4158 18.5188 85.2956 16.5132C80.8491 14.8948 75.8613 14.4675 70.3309 15.2006C64.8026 15.9401 60.2857 18.3254 56.7848 22.3513C54.6174 24.7573 53.0396 27.7858 52.0184 31.4097C51.0185 35.0341 50.512 38.6584 50.512 42.2828C50.512 46.6931 51.1165 50.967 52.3307 55.0618ZM64.2735 43.1806C63.9969 37.0739 65.2739 32.4816 68.1023 29.3902C69.0463 28.4568 70.5337 27.6823 72.5548 27.0754C74.5682 26.4736 76.5974 26.5137 78.6125 27.1776C80.64 27.855 82.4332 29.3902 83.9754 31.8122C85.5319 34.2245 86.3019 37.8493 86.3019 42.6831C86.1704 48.0407 85.2956 51.9341 83.6763 54.3477C82.0582 56.7612 80.1962 58.2697 78.1111 58.8813C76.014 59.4827 73.9717 59.4185 71.9421 58.6726C69.9291 57.9403 68.5109 57.0399 67.7048 55.9613C65.6774 53.5537 64.5306 49.2954 64.2735 43.1806Z" fill="#475569"/>
+                    <path d="M149.18 69.6509H142.11C140.087 69.6509 138.433 69.0106 137.155 67.7361C135.87 66.456 135.237 64.8199 135.237 62.8063V35.4348C135.237 32.2125 134.253 29.8606 132.299 28.3817C130.347 26.909 128.158 26.1679 125.727 26.1679C123.302 26.1679 121.142 26.909 119.261 28.3817C117.37 29.8606 116.426 32.2125 116.426 35.4348V69.6509H102.281V38.25C102.281 29.1287 104.663 23.022 109.457 19.9293C114.237 16.8464 119.523 15.1719 125.325 14.8948C131.257 14.8948 136.711 16.4443 141.706 19.5294C146.694 22.6136 149.18 28.858 149.18 38.25V69.6509Z" fill="#475569"/>
+                    <path fillRule="evenodd" clipRule="evenodd" d="M251.762 53.144H241.651C240.043 53.144 238.782 53.4832 237.917 54.15C237.04 54.8219 236.525 55.3532 236.403 55.7603C236.294 55.8676 236.188 55.9725 236.083 56.0751C235.8 56.3545 235.533 56.6173 235.283 56.8681C234.943 57.2009 234.576 57.4407 234.17 57.5725C232.553 58.513 230.6 58.9771 228.311 58.9771C224.805 58.9771 222.167 57.9049 220.422 55.7603C218.534 53.7458 217.524 50.657 217.395 46.4975H252.367C252.506 46.2353 252.573 45.7678 252.573 45.0891V44.2888V42.8749C252.573 34.0243 250.421 27.1155 246.108 22.1436C241.651 17.3156 235.386 14.8953 227.294 14.8953C219.624 14.8953 213.616 17.3861 209.307 22.3518C205.125 27.1781 203.029 33.8866 203.029 42.4699C203.029 51.4662 205.187 58.3821 209.503 63.2096C213.816 68.1719 219.82 70.6497 227.5 70.6497C233.839 70.6497 239.097 69.1133 243.278 66.0269C247.446 63.0749 250.283 58.7816 251.762 53.144ZM238.011 37.4405H217.395C217.524 33.9555 218.534 31.2725 220.422 29.3902C222.314 27.5108 224.735 26.5695 227.697 26.5695C230.936 26.5695 233.428 27.5108 235.187 29.3902C236.805 31.1327 237.74 33.8157 238.011 37.4405Z" fill="#475569"/>
+                    <path d="M254.799 69.6509V43.6786C254.799 38.4502 255.577 34.0581 257.123 30.4979C258.674 26.9428 260.793 24.0934 263.495 21.9497C266.055 19.9298 269.052 18.4571 272.494 17.5175C275.922 16.5824 279.459 16.1069 283.1 16.1069H284.123H285.126V30.4004H280.482C276.568 30.4004 273.664 31.3417 271.786 33.208C269.895 35.0957 268.949 38.049 268.949 42.0754V69.6513H254.799V69.6509Z" fill="#475569"/>
+                    <path d="M310.392 69.6509C305.954 69.9098 301.13 69.8494 295.945 69.4461C290.748 69.0432 288.166 65.7579 288.166 59.5853V0.40036H295.443C297.186 0.40036 298.743 1.07903 300.087 2.41905C301.438 3.76204 302.114 5.37404 302.114 7.25336V16.3071H310.391V19.1278C310.391 21.1334 309.723 22.7792 308.381 24.0596C307.028 25.3388 305.407 25.974 303.526 25.974H302.114V55.7595C302.114 58.0362 303.451 59.182 306.156 59.182H310.391V69.6509H310.392Z" fill="#475569"/>
+                    <g opacity="0.5"><path d="M153.842 17.9655L151.988 22.7517L158.071 40.0546L164.709 21.7914L153.842 17.9655Z" fill="#475569"/></g>
+                    <g opacity="0.75"><path d="M172.106 15.4844L160.776 47.7518L166.848 65.0632L182.97 19.3022L172.106 15.4844Z" fill="#475569"/></g>
+                    <path d="M204.93 19.1421L201.347 0L186.482 12.6557L190.036 13.8994L170.653 69.6509L170.64 69.6956H182.861L200.91 17.7235L204.93 19.1421Z" fill="#475569"/>
+                    <path d="M319 6.6875C315.789 6.6875 313.188 9.3125 313.188 12.5C313.188 15.7109 315.789 18.3125 319 18.3125C322.188 18.3125 324.812 15.7109 324.812 12.5C324.812 9.3125 322.188 6.6875 319 6.6875ZM319 17.1875C316.398 17.1875 314.312 15.1016 314.312 12.5C314.312 9.92188 316.398 7.8125 319 7.8125C321.578 7.8125 323.688 9.92188 323.688 12.5C323.688 15.1016 321.578 17.1875 319 17.1875ZM321.578 15.2891C320.336 13.0156 320.406 13.1328 320.336 13.0391C320.898 12.7109 321.25 12.0547 321.25 11.3047C321.25 10.0859 320.547 9.3125 318.883 9.3125H317.031C316.867 9.3125 316.75 9.45312 316.75 9.59375V15.4062C316.75 15.5703 316.867 15.6875 317.031 15.6875H317.945C318.086 15.6875 318.227 15.5703 318.227 15.4062V13.4609H318.977L320.078 15.5469C320.125 15.6406 320.242 15.6875 320.336 15.6875H321.32C321.555 15.6875 321.672 15.4766 321.578 15.2891ZM319 12.125H318.227V10.625H318.859C319.609 10.625 319.773 10.9062 319.773 11.375C319.773 11.8672 319.492 12.125 319 12.125Z" fill="#475569"/>
+                  </svg>
                   <h1 style={{
-                fontSize: '28px',
+                fontSize: '36px',
                 fontWeight: 600,
                 color: '#2A3442',
-                letterSpacing: '-0.5px',
-                marginBottom: '32px',
+                letterSpacing: '-1px',
+                marginBottom: '10px',
                 lineHeight: 1.1,
                 fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
-              }}>Build your comparison</h1>
+              }}>Select competitors and evaluation dimensions</h1>
+                  <p style={{
+                fontSize: '15px',
+                color: '#647790',
+                marginBottom: '32px',
+                lineHeight: 1.6,
+                fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
+              }}>Choose which alternatives to benchmark against Convert (baseline), then which dimensions to evaluate. Leave either empty to include all.</p>
                   <div className="flex flex-col gap-5 md:gap-6">
                     {/* Competitors */}
                     <div>
@@ -3811,26 +3838,35 @@ export const ConvertComparisonFramework = () => {
                       <div className="grid grid-cols-4 gap-2">
                         {COMPETITORS.map(comp => <button key={comp.id} onClick={() => toggleCompetitor(comp.id)} style={{
                       display: 'flex',
+                      flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
                       gap: '6px',
-                      height: '48px',
-                      borderRadius: '8px',
-                      border: selectedCompetitors.includes(comp.id) ? '1.5px solid #0066FF' : '1px solid #E2E8F0',
-                      background: selectedCompetitors.includes(comp.id) ? '#EEF4FF' : '#ffffff',
+                      padding: '16px 12px',
+                      borderRadius: '10px',
+                      border: selectedCompetitors.includes(comp.id) ? '1.5px solid #0066FF' : '1px solid rgba(210,220,235,0.8)',
+                      background: selectedCompetitors.includes(comp.id) ? 'rgba(238,244,255,0.97)' : 'rgba(255,255,255,0.93)',
                       cursor: 'pointer',
                       fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif',
-                      fontSize: '13px',
+                      fontSize: '15px',
                       fontWeight: 500,
                       color: selectedCompetitors.includes(comp.id) ? '#0066FF' : '#2A3442',
                       transition: 'all 0.15s',
+                      minHeight: '96px',
+                      position: 'relative',
                     }} onMouseEnter={e => {
-                      if (!selectedCompetitors.includes(comp.id)) (e.currentTarget as HTMLButtonElement).style.background = '#F8FAFC';
+                      const el = e.currentTarget as HTMLButtonElement;
+                      if (!selectedCompetitors.includes(comp.id)) el.style.background = 'rgba(255,255,255,0.99)';
+                      el.style.transform = 'translateY(-2px)';
+                      el.style.boxShadow = '0 6px 18px rgba(0,0,0,0.09)';
                     }} onMouseLeave={e => {
-                      if (!selectedCompetitors.includes(comp.id)) (e.currentTarget as HTMLButtonElement).style.background = '#ffffff';
+                      const el = e.currentTarget as HTMLButtonElement;
+                      if (!selectedCompetitors.includes(comp.id)) el.style.background = 'rgba(255,255,255,0.93)';
+                      el.style.transform = '';
+                      el.style.boxShadow = '';
                     }}>
-                            {selectedCompetitors.includes(comp.id) && <Check className="w-3 h-3" style={{ color: '#0066FF', flexShrink: 0 }} />}
-                            <span>{comp.name}</span>
+                            {selectedCompetitors.includes(comp.id) && <Check className="w-4 h-4" style={{ color: '#0066FF', position: 'absolute', top: '10px', left: '50%', transform: 'translateX(-50%)' }} />}
+                            <span style={{ textAlign: 'center' }}>{comp.name}</span>
                           </button>)}
                       </div>
                     </div>
@@ -3878,8 +3914,8 @@ export const ConvertComparisonFramework = () => {
                       gap: '10px',
                       padding: '20px 12px',
                       borderRadius: '10px',
-                      border: selectedDimensions.includes(dim.id) ? '1.5px solid rgba(109,40,217,0.5)' : '1px solid #E2E8F0',
-                      background: selectedDimensions.includes(dim.id) ? '#F3EEFF' : '#ffffff',
+                      border: selectedDimensions.includes(dim.id) ? '1.5px solid rgba(109,40,217,0.5)' : '1px solid rgba(210,220,235,0.8)',
+                      background: selectedDimensions.includes(dim.id) ? 'rgba(243,238,255,0.97)' : 'rgba(255,255,255,0.93)',
                       cursor: 'pointer',
                       fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif',
                       fontSize: '13px',
@@ -3887,10 +3923,17 @@ export const ConvertComparisonFramework = () => {
                       color: selectedDimensions.includes(dim.id) ? '#6D28D9' : '#2A3442',
                       transition: 'all 0.15s',
                       position: 'relative',
+                      minHeight: '96px',
                     }} onMouseEnter={e => {
-                      if (!selectedDimensions.includes(dim.id)) (e.currentTarget as HTMLButtonElement).style.background = '#F8FAFC';
+                      const el = e.currentTarget as HTMLButtonElement;
+                      if (!selectedDimensions.includes(dim.id)) el.style.background = 'rgba(255,255,255,0.99)';
+                      el.style.transform = 'translateY(-2px)';
+                      el.style.boxShadow = '0 6px 18px rgba(0,0,0,0.09)';
                     }} onMouseLeave={e => {
-                      if (!selectedDimensions.includes(dim.id)) (e.currentTarget as HTMLButtonElement).style.background = '#ffffff';
+                      const el = e.currentTarget as HTMLButtonElement;
+                      if (!selectedDimensions.includes(dim.id)) el.style.background = 'rgba(255,255,255,0.93)';
+                      el.style.transform = '';
+                      el.style.boxShadow = '';
                     }}>
                             {selectedDimensions.includes(dim.id) && <div style={{
                         position: 'absolute',
@@ -3910,13 +3953,14 @@ export const ConvertComparisonFramework = () => {
                         width: '36px',
                         height: '36px',
                         borderRadius: '9px',
-                        background: selectedDimensions.includes(dim.id) ? '#6D28D9' : '#0066FF',
+                        background: selectedDimensions.includes(dim.id) ? '#6D28D9' : 'rgba(109,40,217,0.06)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        flexShrink: 0
+                        flexShrink: 0,
+                        transition: 'background 0.15s'
                       }}>
-                                <div style={{ color: '#ffffff', display: 'flex' }}>{dim.icon}</div>
+                                <div style={{ color: selectedDimensions.includes(dim.id) ? '#ffffff' : '#6D28D9', display: 'flex' }}>{dim.icon}</div>
                               </div>
                             <span style={{ textAlign: 'center', lineHeight: 1.3 }}>{dim.label}</span>
                           </button>)}
@@ -4001,7 +4045,7 @@ export const ConvertComparisonFramework = () => {
                 }} className="border-r border-gray-200 bg-muted overflow-hidden flex-shrink-0" style={{
                   fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
                 }}>
-                          <div className="p-3 border-b border-gray-200 bg-card flex items-center justify-between">
+                          <div className="p-2 border-b border-gray-200 bg-card flex items-center justify-between">
                             <span className="text-[10px] font-bold uppercase tracking-widest" style={{
                       color: '#647790',
                       fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
@@ -4009,6 +4053,63 @@ export const ConvertComparisonFramework = () => {
                             <button onClick={() => setSidebarOpen(false)} className="text-muted-foreground hover:text-foreground px-2 py-1 rounded-lg hover:bg-muted border-2 border-border font-bold"><ChevronLeft className="w-4 h-4" /></button>
                           </div>
                           <div className="overflow-y-auto h-full p-3 space-y-6 pb-20">
+                            {/* Competitors */}
+                            <div>
+                              <div className="flex items-center justify-between mb-2">
+                                <h3 style={{
+                          fontSize: '10px',
+                          fontWeight: 600,
+                          color: '#2A3442',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.10em',
+                          borderLeft: '2px solid #2A3442',
+                          paddingLeft: '8px',
+                          fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif',
+                          margin: 0
+                        }}>Alternatives</h3>
+                                <div className="flex gap-1">
+                                  <button onClick={selectAllCompetitors} style={{
+                            fontSize: '11px',
+                            color: '#0066FF',
+                            fontWeight: 500,
+                            background: 'none',
+                            border: 'none',
+                            cursor: 'pointer',
+                            padding: 0,
+                            fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
+                          }} className="hover:underline">All</button>
+                                  <span style={{
+                            color: '#CFD9E6'
+                          }} className="text-[10px]">|</span>
+                                  <button onClick={deselectAllCompetitors} style={{
+                            fontSize: '11px',
+                            color: '#0066FF',
+                            fontWeight: 500,
+                            background: 'none',
+                            border: 'none',
+                            cursor: 'pointer',
+                            padding: 0,
+                            fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
+                          }} className="hover:underline">None</button>
+                                </div>
+                              </div>
+                              <div className="space-y-1">
+                                {COMPETITORS.map(comp => <button key={comp.id} onClick={() => toggleCompetitor(comp.id)} className="w-full flex items-center justify-between p-2 rounded-lg text-left transition-all text-[11px]" style={{
+                          border: selectedCompetitors.includes(comp.id) ? '1.5px solid #0066FF' : '1px solid #E2E8F0',
+                          background: selectedCompetitors.includes(comp.id) ? '#EEF4FF' : '#ffffff'
+                        }} onMouseEnter={e => {
+                          if (!selectedCompetitors.includes(comp.id)) (e.currentTarget as HTMLButtonElement).style.background = '#F8FAFC';
+                        }} onMouseLeave={e => {
+                          if (!selectedCompetitors.includes(comp.id)) (e.currentTarget as HTMLButtonElement).style.background = '#ffffff';
+                        }}>
+                                    <span className="font-bold" style={{
+                            color: selectedCompetitors.includes(comp.id) ? '#0066FF' : '#2A3442',
+                            fontSize: '11px'
+                          }}>{comp.name}</span>
+                                    {selectedCompetitors.includes(comp.id) && <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6L5 9L10 3" stroke="#0066FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>}
+                                  </button>)}
+                              </div>
+                            </div>
                             {/* Dimensions */}
                             <div>
                               <div className="flex items-center justify-between mb-2">
@@ -4065,63 +4166,6 @@ export const ConvertComparisonFramework = () => {
                             color: selectedDimensions.includes(dim.id) ? '#6D28D9' : '#647790',
                             fontSize: '11px'
                           }}>{dim.label}</span>
-                                  </button>)}
-                              </div>
-                            </div>
-                            {/* Competitors */}
-                            <div>
-                              <div className="flex items-center justify-between mb-2">
-                                <h3 style={{
-                          fontSize: '10px',
-                          fontWeight: 600,
-                          color: '#2A3442',
-                          textTransform: 'uppercase',
-                          letterSpacing: '0.10em',
-                          borderLeft: '2px solid #2A3442',
-                          paddingLeft: '8px',
-                          fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif',
-                          margin: 0
-                        }}>Alternatives</h3>
-                                <div className="flex gap-1">
-                                  <button onClick={selectAllCompetitors} style={{
-                            fontSize: '11px',
-                            color: '#0066FF',
-                            fontWeight: 500,
-                            background: 'none',
-                            border: 'none',
-                            cursor: 'pointer',
-                            padding: 0,
-                            fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
-                          }} className="hover:underline">All</button>
-                                  <span style={{
-                            color: '#CFD9E6'
-                          }} className="text-[10px]">|</span>
-                                  <button onClick={deselectAllCompetitors} style={{
-                            fontSize: '11px',
-                            color: '#0066FF',
-                            fontWeight: 500,
-                            background: 'none',
-                            border: 'none',
-                            cursor: 'pointer',
-                            padding: 0,
-                            fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
-                          }} className="hover:underline">None</button>
-                                </div>
-                              </div>
-                              <div className="space-y-1">
-                                {COMPETITORS.map(comp => <button key={comp.id} onClick={() => toggleCompetitor(comp.id)} className="w-full flex items-center justify-between p-2 rounded-lg text-left transition-all text-[11px]" style={{
-                          border: selectedCompetitors.includes(comp.id) ? '1.5px solid #0066FF' : '1px solid #E2E8F0',
-                          background: selectedCompetitors.includes(comp.id) ? '#EEF4FF' : '#ffffff'
-                        }} onMouseEnter={e => {
-                          if (!selectedCompetitors.includes(comp.id)) (e.currentTarget as HTMLButtonElement).style.background = '#F8FAFC';
-                        }} onMouseLeave={e => {
-                          if (!selectedCompetitors.includes(comp.id)) (e.currentTarget as HTMLButtonElement).style.background = '#ffffff';
-                        }}>
-                                    <span className="font-bold" style={{
-                            color: selectedCompetitors.includes(comp.id) ? '#0066FF' : '#2A3442',
-                            fontSize: '11px'
-                          }}>{comp.name}</span>
-                                    {selectedCompetitors.includes(comp.id) && <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6L5 9L10 3" stroke="#0066FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>}
                                   </button>)}
                               </div>
                             </div>
