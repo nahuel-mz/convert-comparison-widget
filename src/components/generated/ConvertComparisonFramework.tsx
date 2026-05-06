@@ -3609,7 +3609,7 @@ const MobileComparisonView = ({
         color: '#94a3b8',
         textTransform: 'uppercase',
         letterSpacing: '0.06em'
-      }}>© 2024 CONVERT COMPARISON FRAMEWORK • PROPRIETARY ASSET</div>
+      }}>© {new Date().getFullYear()} CONVERT COMPARISON FRAMEWORK • PROPRIETARY ASSET</div>
         <div className="flex gap-3" style={{
         fontSize: '10px',
         color: '#94a3b8',
@@ -4367,7 +4367,7 @@ export const ConvertComparisonFramework = () => {
                     color: '#94a3b8',
                     textTransform: 'uppercase',
                     letterSpacing: '0.06em'
-                  }}>© 2024 CONVERT COMPARISON FRAMEWORK • PROPRIETARY ASSET</div>
+                  }}>© {new Date().getFullYear()} CONVERT COMPARISON FRAMEWORK • PROPRIETARY ASSET</div>
                         <div className="flex gap-3" style={{
                     fontSize: '10px',
                     color: '#94a3b8',
