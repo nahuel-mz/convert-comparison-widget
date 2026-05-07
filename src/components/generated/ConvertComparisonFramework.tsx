@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, Info, X, BadgeDollarSign, Headphones, Database, ShieldCheck, Zap, ChevronLeft, ChevronDown, SlidersHorizontal, ArrowLeft, Search } from 'lucide-react';
+import { Check, Info, X, CurrencyDollar, Headphones, Database, ShieldCheck, Lightning, CaretLeft, CaretDown, SlidersHorizontal, ArrowLeft, MagnifyingGlass } from '@phosphor-icons/react';
 import { pdf, PDFViewer } from '@react-pdf/renderer';
 import { cn } from '../../lib/utils';
 import { useIsMobile } from '../../hooks/use-mobile';
@@ -38,7 +38,7 @@ const DIMENSIONS: {
 }[] = [{
   id: 'pricing',
   label: 'Pricing & TCO',
-  icon: <BadgeDollarSign className="w-4 h-4" />
+  icon: <CurrencyDollar className="w-4 h-4" />
 }, {
   id: 'scale',
   label: 'Scale & Limits',
@@ -46,7 +46,7 @@ const DIMENSIONS: {
 }, {
   id: 'features',
   label: 'Experimentation Features',
-  icon: <Zap className="w-4 h-4" />
+  icon: <Lightning className="w-4 h-4" />
 }, {
   id: 'governance',
   label: 'Governance & Security',
@@ -3421,7 +3421,7 @@ const MobileCompetitorPicker = ({
             </div>
             {availableCompetitors.length > 4 && <div className="px-4 pt-3 pb-2 flex-shrink-0">
                 <div className="flex items-center gap-2 px-3 py-2 rounded-lg border-2 border-border bg-muted">
-                  <Search className="w-3.5 h-3.5 text-muted-foreground flex-shrink-0" />
+                  <MagnifyingGlass className="w-3.5 h-3.5 text-muted-foreground flex-shrink-0" />
                   <input type="text" placeholder="Search competitors…" value={query} onChange={e => setQuery(e.target.value)} className="flex-1 bg-transparent text-xs text-foreground placeholder:text-muted-foreground outline-none" />
                   {query && <button onClick={() => setQuery('')} className="text-muted-foreground hover:text-foreground"><X className="w-3 h-3" /></button>}
                 </div>
@@ -3527,7 +3527,7 @@ const MobileComparisonView = ({
             className="w-full flex items-center justify-between px-1.5 py-1.5 rounded border border-blue-200 bg-white text-left"
           >
             <span className="text-[9px] font-semibold text-blue-700 truncate">{CONVERT_PLANS[convertPlanIdx].name}</span>
-            <ChevronDown className="w-3 h-3 text-blue-400 flex-shrink-0" />
+            <CaretDown className="w-3 h-3 text-blue-400 flex-shrink-0" />
           </button>
           {convertDropdownOpen && (
             <div className="absolute left-0 right-0 bg-white rounded-lg shadow-xl border border-border overflow-hidden" style={{ top: '100%', zIndex: 50 }}>
@@ -3551,7 +3551,7 @@ const MobileComparisonView = ({
             className="flex items-center gap-0.5 text-left min-w-0"
           >
             <span className="text-[8px] font-bold uppercase tracking-wider text-foreground truncate">{activeCompetitor?.name ?? '—'}</span>
-            {availableCompetitors.length > 1 && <ChevronDown className="w-2.5 h-2.5 text-muted-foreground flex-shrink-0" />}
+            {availableCompetitors.length > 1 && <CaretDown className="w-2.5 h-2.5 text-muted-foreground flex-shrink-0" />}
           </button>
           {activeCompetitor && activeCompetitor.plans.length > 1 ? (
             <>
@@ -3560,7 +3560,7 @@ const MobileComparisonView = ({
                 className="w-full flex items-center justify-between px-1.5 py-1.5 rounded border border-border bg-white text-left"
               >
                 <span className="text-[9px] font-semibold text-foreground truncate">{activeCompetitor.plans[competitorPlanIdx].name}</span>
-                <ChevronDown className="w-3 h-3 text-muted-foreground flex-shrink-0" />
+                <CaretDown className="w-3 h-3 text-muted-foreground flex-shrink-0" />
               </button>
               {compDropdownOpen && (
                 <div className="absolute left-0 right-0 bg-white rounded-lg shadow-xl border border-border overflow-hidden" style={{ top: '100%', zIndex: 50 }}>
@@ -4061,7 +4061,7 @@ export const ConvertComparisonFramework = () => {
                       color: '#647790',
                       fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
                     }}>Filters</span>
-                            <button onClick={() => setSidebarOpen(false)} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '8px 10px', background: '#ffffff', border: '1.5px solid #CFD9E6', borderRadius: '10px', cursor: 'pointer', color: '#647790' }}><ChevronLeft style={{ width: '16px', height: '16px' }} /></button>
+                            <button onClick={() => setSidebarOpen(false)} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '8px 10px', background: '#ffffff', border: '1.5px solid #CFD9E6', borderRadius: '10px', cursor: 'pointer', color: '#647790' }}><CaretLeft style={{ width: '16px', height: '16px' }} /></button>
                           </div>
                           <div className="overflow-y-auto h-full p-3 space-y-6 pb-20">
                             {/* Competitors */}
