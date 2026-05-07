@@ -3337,22 +3337,6 @@ const MobileFilterDrawer = ({
           <div className="overflow-y-auto flex-1 p-4 space-y-6">
             <div>
               <div className="flex items-center justify-between mb-3">
-                <h3 className="text-xs font-bold text-foreground uppercase tracking-wide border-l-2 border-primary pl-2">Dimensions</h3>
-                <div className="flex gap-2">
-                  <button onClick={selectAllDimensions} className="text-[10px] text-muted-foreground hover:text-primary underline font-bold">All</button>
-                  <span className="text-border text-[10px]">|</span>
-                  <button onClick={deselectAllDimensions} className="text-[10px] text-muted-foreground hover:text-primary underline font-bold">None</button>
-                </div>
-              </div>
-              <div className="space-y-2">
-                {DIMENSIONS.map(dim => <button key={dim.id} onClick={() => toggleDimension(dim.id)} className={cn('w-full flex items-center gap-3 p-3 rounded-lg text-left transition-all text-sm border-2', selectedDimensions.includes(dim.id) ? SELECTED_OPTION_CLASSES : 'bg-card text-foreground hover:bg-accent border-border')}>
-                    <div className="flex-shrink-0 text-primary">{dim.icon}</div>
-                    <span className="font-bold truncate">{dim.label}</span>
-                  </button>)}
-              </div>
-            </div>
-            <div>
-              <div className="flex items-center justify-between mb-3">
                 <h3 className="text-xs font-bold text-foreground uppercase tracking-wide border-l-2 border-primary pl-2">Alternatives</h3>
                 <div className="flex gap-2">
                   <button onClick={selectAllCompetitors} className="text-[10px] text-muted-foreground hover:text-primary underline font-bold">All</button>
@@ -3364,6 +3348,22 @@ const MobileFilterDrawer = ({
                 {COMPETITORS.map(comp => <button key={comp.id} onClick={() => toggleCompetitor(comp.id)} className={cn('w-full flex items-center justify-between p-3 rounded-lg text-left transition-all text-sm border-2', selectedCompetitors.includes(comp.id) ? SELECTED_OPTION_CLASSES : 'bg-card text-foreground hover:bg-accent border-border')}>
                     <span className="font-bold">{comp.name}</span>
                     {selectedCompetitors.includes(comp.id) && <Check className="w-4 h-4 text-primary" />}
+                  </button>)}
+              </div>
+            </div>
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-xs font-bold text-foreground uppercase tracking-wide border-l-2 border-primary pl-2">Dimensions</h3>
+                <div className="flex gap-2">
+                  <button onClick={selectAllDimensions} className="text-[10px] text-muted-foreground hover:text-primary underline font-bold">All</button>
+                  <span className="text-border text-[10px]">|</span>
+                  <button onClick={deselectAllDimensions} className="text-[10px] text-muted-foreground hover:text-primary underline font-bold">None</button>
+                </div>
+              </div>
+              <div className="space-y-2">
+                {DIMENSIONS.map(dim => <button key={dim.id} onClick={() => toggleDimension(dim.id)} className={cn('w-full flex items-center gap-3 p-3 rounded-lg text-left transition-all text-sm border-2', selectedDimensions.includes(dim.id) ? SELECTED_OPTION_CLASSES : 'bg-card text-foreground hover:bg-accent border-border')}>
+                    <div className="flex-shrink-0 text-primary">{dim.icon}</div>
+                    <span className="font-bold truncate">{dim.label}</span>
                   </button>)}
               </div>
             </div>
@@ -3464,6 +3464,8 @@ const MobileComparisonView = ({
   const [convertPlanIdx, setConvertPlanIdx] = useState(0);
   const [competitorPlanIdx, setCompetitorPlanIdx] = useState(0);
   const [pickerOpen, setPickerOpen] = useState(false);
+  const [convertDropdownOpen, setConvertDropdownOpen] = useState(false);
+  const [compDropdownOpen, setCompDropdownOpen] = useState(false);
   useEffect(() => {
     if (!selectedCompetitors.includes(activeCompetitorId) && availableCompetitors.length > 0) {
       setActiveCompetitorId(availableCompetitors[0].id);
@@ -3504,54 +3506,81 @@ const MobileComparisonView = ({
   }
   return <div className="flex flex-col h-full">
       <MobileCompetitorPicker isOpen={pickerOpen} onClose={() => setPickerOpen(false)} availableCompetitors={availableCompetitors} activeCompetitorId={activeCompetitorId} onSelect={id => setActiveCompetitorId(id)} />
-      <div className="flex-shrink-0 border-b border-border bg-card">
-        <div className="flex items-center justify-between px-3 py-2 gap-2">
-          <button onClick={onBack} className="p-1.5 rounded-lg hover:bg-muted text-muted-foreground hover:text-foreground"><ArrowLeft className="w-4 h-4" /></button>
-          <div className="flex-1 min-w-0">
-            <p className="text-[9px] font-bold text-foreground mb-1">Comparing</p>
-            <p className="text-xs font-bold text-foreground truncate">
-              <span>Convert</span>
-              <span className="text-muted-foreground mx-1">vs</span>
-              <span>{activeCompetitor?.name ?? '—'}</span>
-            </p>
-          </div>
-          <button onClick={onOpenFilters} className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border-2 border-border hover:border-primary text-muted-foreground hover:text-foreground text-[10px] font-bold uppercase tracking-wide flex-shrink-0">
-            <SlidersHorizontal className="w-3.5 h-3.5" />
+      {/* ── Sticky column headers ── */}
+      <div className="flex-shrink-0 flex bg-card" style={{ borderBottom: '2px solid #E2E8F0', position: 'relative', zIndex: 10 }}>
+        {/* Attribute col: back + filters */}
+        <div style={{ width: '38%' }} className="px-2.5 py-2.5 border-r border-border flex items-center justify-between">
+          <button onClick={onBack} className="p-1.5 rounded-lg hover:bg-muted text-muted-foreground hover:text-foreground transition-colors">
+            <ArrowLeft className="w-4 h-4" />
+          </button>
+          <button onClick={onOpenFilters} className="flex items-center gap-1 px-2 py-1 rounded-full border border-border bg-white text-muted-foreground text-[9px] font-bold uppercase tracking-wide hover:border-primary hover:text-primary transition-colors">
+            <SlidersHorizontal className="w-3 h-3" />
             <span>Filters</span>
           </button>
         </div>
-        <div className="px-3 pb-2">
-          <button onClick={() => setPickerOpen(true)} className={cn('w-full flex items-center justify-between px-3 py-2 rounded-lg border-2 transition-all text-left', SELECTED_OPTION_CLASSES)}>
-            <div className="flex items-center gap-2 min-w-0">
-              <span className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground flex-shrink-0">vs</span>
-              <span className="text-xs font-bold text-foreground truncate">{activeCompetitor?.name ?? '—'}</span>
-              {availableCompetitors.length > 1 && <span className="text-[9px] text-muted-foreground flex-shrink-0">{availableCompetitors.indexOf(activeCompetitor!) + 1}/{availableCompetitors.length}</span>}
-            </div>
-            <ChevronDown className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+
+        {/* Convert col */}
+        <div style={{ width: '31%', position: 'relative' }} className="px-2 py-2 border-r border-border bg-blue-50/80 flex flex-col gap-1.5">
+          <span className="text-[8px] font-bold uppercase tracking-wider text-blue-600">Convert</span>
+          <button
+            onClick={() => { setConvertDropdownOpen(o => !o); setCompDropdownOpen(false); }}
+            className="w-full flex items-center justify-between px-1.5 py-1.5 rounded border border-blue-200 bg-white text-left"
+          >
+            <span className="text-[9px] font-semibold text-blue-700 truncate">{CONVERT_PLANS[convertPlanIdx].name}</span>
+            <ChevronDown className="w-3 h-3 text-blue-400 flex-shrink-0" />
           </button>
-        </div>
-        <div className="flex items-center gap-2 px-3 pb-3">
-          <div className="flex-1 min-w-0">
-            <p className="text-[9px] font-bold uppercase tracking-widest text-primary mb-1">Convert Plan</p>
-            <div className="flex gap-1">
-              {CONVERT_PLANS.map((plan, idx) => <button key={plan.id} onClick={() => setConvertPlanIdx(idx)} className={cn('flex-1 py-1 px-1.5 rounded-md text-[10px] font-bold border-2 transition-all', convertPlanIdx === idx ? SELECTED_OPTION_CLASSES : 'border-border bg-card text-muted-foreground hover:border-primary')}>
+          {convertDropdownOpen && (
+            <div className="absolute left-0 right-0 bg-white rounded-lg shadow-xl border border-border overflow-hidden" style={{ top: '100%', zIndex: 50 }}>
+              {CONVERT_PLANS.map((plan, idx) => (
+                <button
+                  key={plan.id}
+                  onClick={() => { setConvertPlanIdx(idx); setConvertDropdownOpen(false); }}
+                  className={cn('w-full text-left px-3 py-2 text-xs border-b border-border last:border-0 transition-colors', convertPlanIdx === idx ? 'bg-blue-50 text-blue-700 font-bold' : 'text-foreground hover:bg-muted')}
+                >
                   {plan.name}
-                </button>)}
+                </button>
+              ))}
             </div>
-          </div>
-          <div className="text-[10px] font-bold text-muted-foreground flex-shrink-0 mt-4">vs</div>
-          {activeCompetitor && activeCompetitor.plans.length > 1 && <div className="flex-1 min-w-0">
-              <p className="text-[9px] font-bold uppercase tracking-widest text-foreground mb-1">{activeCompetitor.name} Plan</p>
-              <div className="flex gap-1 flex-wrap">
-                {activeCompetitor.plans.map((plan, idx) => <button key={`${activeCompetitorId}-${plan.id}`} onClick={() => setCompetitorPlanIdx(idx)} className={cn('flex-1 py-1 px-1.5 rounded-md text-[10px] font-bold border-2 transition-all whitespace-nowrap', competitorPlanIdx === idx ? SELECTED_OPTION_CLASSES : 'border-border bg-card text-muted-foreground hover:border-primary')}>
-                    {plan.name}
-                  </button>)}
-              </div>
-            </div>}
-          {activeCompetitor && activeCompetitor.plans.length === 1 && <div className="flex-1 min-w-0">
-              <p className="text-[9px] font-bold uppercase tracking-widest text-foreground mb-1">{activeCompetitor.name}</p>
-              <div className="py-1 px-2 rounded-md text-[10px] font-bold border-2 border-border bg-muted text-muted-foreground text-center">{activeCompetitor.plans[0].name}</div>
-            </div>}
+          )}
+        </div>
+
+        {/* Competitor col */}
+        <div style={{ width: '31%', position: 'relative' }} className="px-2 py-2 flex flex-col gap-1.5">
+          <button
+            onClick={() => { setPickerOpen(true); setConvertDropdownOpen(false); setCompDropdownOpen(false); }}
+            className="flex items-center gap-0.5 text-left min-w-0"
+          >
+            <span className="text-[8px] font-bold uppercase tracking-wider text-foreground truncate">{activeCompetitor?.name ?? '—'}</span>
+            {availableCompetitors.length > 1 && <ChevronDown className="w-2.5 h-2.5 text-muted-foreground flex-shrink-0" />}
+          </button>
+          {activeCompetitor && activeCompetitor.plans.length > 1 ? (
+            <>
+              <button
+                onClick={() => { setCompDropdownOpen(o => !o); setConvertDropdownOpen(false); }}
+                className="w-full flex items-center justify-between px-1.5 py-1.5 rounded border border-border bg-white text-left"
+              >
+                <span className="text-[9px] font-semibold text-foreground truncate">{activeCompetitor.plans[competitorPlanIdx].name}</span>
+                <ChevronDown className="w-3 h-3 text-muted-foreground flex-shrink-0" />
+              </button>
+              {compDropdownOpen && (
+                <div className="absolute left-0 right-0 bg-white rounded-lg shadow-xl border border-border overflow-hidden" style={{ top: '100%', zIndex: 50 }}>
+                  {activeCompetitor.plans.map((plan, idx) => (
+                    <button
+                      key={plan.id}
+                      onClick={() => { setCompetitorPlanIdx(idx); setCompDropdownOpen(false); }}
+                      className={cn('w-full text-left px-3 py-2 text-xs border-b border-border last:border-0 transition-colors', competitorPlanIdx === idx ? 'bg-muted text-foreground font-bold' : 'text-foreground hover:bg-muted')}
+                    >
+                      {plan.name}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </>
+          ) : activeCompetitor?.plans.length === 1 ? (
+            <div className="px-1.5 py-1.5 rounded border border-border bg-muted text-[9px] font-semibold text-muted-foreground text-center">
+              {activeCompetitor.plans[0].name}
+            </div>
+          ) : null}
         </div>
       </div>
       <div className="flex-1 overflow-y-auto">
@@ -3571,11 +3600,11 @@ const MobileComparisonView = ({
             }} className={cn(idx % 2 === 1 ? 'bg-muted/40' : 'bg-card')}>
                     <div style={{
                 display: 'table-cell',
-                width: '30%',
+                width: '38%',
                 verticalAlign: 'middle'
               }} className="px-2 py-2.5 border-b border-border">
                       <div className="flex items-start gap-1">
-                        <span className="truncate">{attr.attribute}</span>
+                        <span className="text-[10px] leading-snug break-words min-w-0">{attr.attribute}</span>
                         {attr.tooltip && <div className="mt-0.5 flex-shrink-0"><InlineTooltip content={attr.tooltip} /></div>}
                       </div>
                     </div>
@@ -3600,26 +3629,8 @@ const MobileComparisonView = ({
             <p className="text-xs text-muted-foreground">Select at least one dimension in filters.</p>
           </div>}
       </div>
-      <div className="p-2 flex justify-between items-center flex-shrink-0" style={{
-      borderTop: '1px solid #E2E8F0',
-      backgroundColor: '#ffffff'
-    }}>
-        <div style={{
-        fontSize: '10px',
-        color: '#94a3b8',
-        textTransform: 'uppercase',
-        letterSpacing: '0.06em'
-      }}>© {new Date().getFullYear()} CONVERT COMPARISON FRAMEWORK • PROPRIETARY ASSET</div>
-        <div className="flex gap-3" style={{
-        fontSize: '10px',
-        color: '#94a3b8',
-        letterSpacing: '0.06em',
-        textTransform: 'uppercase'
-      }}>
-          <span>Structure-First</span>
-          <span>No Marketing Labels</span>
-          <span>Data Transparency</span>
-        </div>
+      <div className="px-3 py-2 flex items-center justify-center flex-shrink-0" style={{ borderTop: '1px solid #E2E8F0', backgroundColor: '#ffffff' }}>
+        <span style={{ fontSize: '9px', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.06em' }}>© {new Date().getFullYear()} Convert</span>
       </div>
     </div>;
 };
@@ -3784,12 +3795,12 @@ export const ConvertComparisonFramework = () => {
                     <path d="M319 6.6875C315.789 6.6875 313.188 9.3125 313.188 12.5C313.188 15.7109 315.789 18.3125 319 18.3125C322.188 18.3125 324.812 15.7109 324.812 12.5C324.812 9.3125 322.188 6.6875 319 6.6875ZM319 17.1875C316.398 17.1875 314.312 15.1016 314.312 12.5C314.312 9.92188 316.398 7.8125 319 7.8125C321.578 7.8125 323.688 9.92188 323.688 12.5C323.688 15.1016 321.578 17.1875 319 17.1875ZM321.578 15.2891C320.336 13.0156 320.406 13.1328 320.336 13.0391C320.898 12.7109 321.25 12.0547 321.25 11.3047C321.25 10.0859 320.547 9.3125 318.883 9.3125H317.031C316.867 9.3125 316.75 9.45312 316.75 9.59375V15.4062C316.75 15.5703 316.867 15.6875 317.031 15.6875H317.945C318.086 15.6875 318.227 15.5703 318.227 15.4062V13.4609H318.977L320.078 15.5469C320.125 15.6406 320.242 15.6875 320.336 15.6875H321.32C321.555 15.6875 321.672 15.4766 321.578 15.2891ZM319 12.125H318.227V10.625H318.859C319.609 10.625 319.773 10.9062 319.773 11.375C319.773 11.8672 319.492 12.125 319 12.125Z" fill="#475569"/>
                   </svg>
                   <h1 style={{
-                fontSize: '36px',
+                fontSize: isMobile ? '24px' : '36px',
                 fontWeight: 600,
                 color: '#2A3442',
-                letterSpacing: '-1px',
+                letterSpacing: isMobile ? '-0.5px' : '-1px',
                 marginBottom: '10px',
-                lineHeight: 1.1,
+                lineHeight: 1.15,
                 fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
               }}>Select competitors and evaluation dimensions</h1>
                   <p style={{
@@ -3835,7 +3846,7 @@ export const ConvertComparisonFramework = () => {
                       }} className="hover:underline">Deselect all</button>
                         </div>
                       </div>
-                      <div className="grid grid-cols-4 gap-2">
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                         {COMPETITORS.map(comp => <button key={comp.id} onClick={() => toggleCompetitor(comp.id)} style={{
                       display: 'flex',
                       flexDirection: 'column',
@@ -3844,7 +3855,7 @@ export const ConvertComparisonFramework = () => {
                       gap: '6px',
                       padding: '16px 12px',
                       borderRadius: '10px',
-                      border: selectedCompetitors.includes(comp.id) ? '1.5px solid #0066FF' : '1px solid rgba(210,220,235,0.8)',
+                      border: selectedCompetitors.includes(comp.id) ? '1.5px solid rgba(0,102,255,0.4)' : '1px solid rgba(210,220,235,0.8)',
                       background: selectedCompetitors.includes(comp.id) ? 'rgba(238,244,255,0.97)' : 'rgba(255,255,255,0.93)',
                       cursor: 'pointer',
                       fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif',
@@ -3905,7 +3916,7 @@ export const ConvertComparisonFramework = () => {
                       }} className="hover:underline">Deselect all</button>
                         </div>
                       </div>
-                      <div className="grid grid-cols-5 gap-3">
+                      <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
                         {DIMENSIONS.map(dim => <button key={dim.id} onClick={() => toggleDimension(dim.id)} style={{
                       display: 'flex',
                       flexDirection: 'column',
@@ -4095,7 +4106,7 @@ export const ConvertComparisonFramework = () => {
                               </div>
                               <div className="space-y-1">
                                 {COMPETITORS.map(comp => <button key={comp.id} onClick={() => toggleCompetitor(comp.id)} className="w-full flex items-center justify-between p-2 rounded-lg text-left transition-all text-[11px]" style={{
-                          border: selectedCompetitors.includes(comp.id) ? '1.5px solid #0066FF' : '1px solid #E2E8F0',
+                          border: selectedCompetitors.includes(comp.id) ? '1.5px solid rgba(0,102,255,0.4)' : '1px solid #E2E8F0',
                           background: selectedCompetitors.includes(comp.id) ? '#EEF4FF' : '#ffffff'
                         }} onMouseEnter={e => {
                           if (!selectedCompetitors.includes(comp.id)) (e.currentTarget as HTMLButtonElement).style.background = '#F8FAFC';
@@ -4358,26 +4369,16 @@ export const ConvertComparisonFramework = () => {
                         </table>
                       </div>
                       {/* Footer */}
-                      <div className="p-2 flex justify-between items-center flex-shrink-0" style={{
+                      <div className="px-3 py-2 flex items-center justify-center flex-shrink-0" style={{
                   borderTop: '1px solid #E2E8F0',
                   backgroundColor: '#ffffff'
                 }}>
-                        <div style={{
+                        <span style={{
                     fontSize: '10px',
                     color: '#94a3b8',
                     textTransform: 'uppercase',
                     letterSpacing: '0.06em'
-                  }}>© {new Date().getFullYear()} CONVERT COMPARISON FRAMEWORK • PROPRIETARY ASSET</div>
-                        <div className="flex gap-3" style={{
-                    fontSize: '10px',
-                    color: '#94a3b8',
-                    letterSpacing: '0.06em',
-                    textTransform: 'uppercase'
-                  }}>
-                          <span>Structure-First</span>
-                          <span>No Marketing Labels</span>
-                          <span>Data Transparency</span>
-                        </div>
+                  }}>© {new Date().getFullYear()} Convert</span>
                       </div>
                     </div>
                   </>}
