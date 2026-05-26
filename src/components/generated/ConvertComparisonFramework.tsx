@@ -151,6 +151,19 @@ const COMPETITORS: Competitor[] = [{
     id: 'sl-pro',
     name: 'Pro'
   }]
+}, {
+  id: 'visually',
+  name: 'Visually',
+  plans: [{
+    id: 'vis-launch',
+    name: 'Launch'
+  }, {
+    id: 'vis-pro',
+    name: 'Pro'
+  }, {
+    id: 'vis-scale',
+    name: 'Scale'
+  }]
 }];
 const CONVERT_PLANS: PlanData[] = [{
   id: 'convert-growth',
@@ -194,7 +207,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Custom MTU Volume',
     'sl-core': 'Up to 100k store visitors',
     'sl-advanced': 'Up to 1m store visitors',
-    'sl-pro': 'Up to 1m store visitors — gated thereafter'
+    'sl-pro': 'Up to 1m store visitors — gated thereafter',
+    'vis-launch': 'Order-based (orders/mo)',
+    'vis-pro': 'Order-based (orders/mo)',
+    'vis-scale': 'Order-based (orders/mo)'
   }
 }, {
   attribute: 'Price per month (monthly plan)',
@@ -223,7 +239,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Contact Sales for pricing',
     'sl-core': '$99/mo - $199/mo',
     'sl-advanced': '$399/mo - $999/mo',
-    'sl-pro': 'Annual only'
+    'sl-pro': 'Annual only',
+    'vis-launch': '$630 - $1800 (then gated)',
+    'vis-pro': '$15/mo - $3600/mo (then gated)',
+    'vis-scale': '$1200/mo - $8280/mo (then gated)'
   }
 }, {
   attribute: 'Price per month (annual plan)',
@@ -253,7 +272,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Contact Sales for pricing',
     'sl-core': '$74/mo - $149/mo',
     'sl-advanced': '$299/mo - $749/mo, then gated',
-    'sl-pro': '$699/mo - $1499/mo, then gated'
+    'sl-pro': '$699/mo - $1499/mo, then gated',
+    'vis-launch': '$567 - $1620',
+    'vis-pro': '$13 - $3240/mo',
+    'vis-scale': '$1080/mo - $7452/mo'
   }
 }, {
   attribute: 'Annual price for whole year',
@@ -283,7 +305,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Contact Sales for pricing',
     'sl-core': '$888/yr - $1788/yr',
     'sl-advanced': '$3588/yr - $8988/yr',
-    'sl-pro': '$8388/yr - $17988/yr'
+    'sl-pro': '$8388/yr - $17988/yr',
+    'vis-launch': '$6805 - $19940',
+    'vis-pro': '$156 - $38880',
+    'vis-scale': '$12960 - $89424'
   }
 }, {
   attribute: 'Forced plan upgrades',
@@ -313,7 +338,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Discounts 2 years',
@@ -342,7 +370,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': 'Unknown',
     'sl-advanced': 'Unknown',
-    'sl-pro': 'Unknown'
+    'sl-pro': 'Unknown',
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Discounts 3 years',
@@ -371,7 +402,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': 'Unknown',
     'sl-advanced': 'Unknown',
-    'sl-pro': 'Unknown'
+    'sl-pro': 'Unknown',
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Auto-upgrade',
@@ -401,7 +435,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': 'No (tests pause)',
     'sl-advanced': 'No (tests pause)',
-    'sl-pro': 'No (tests pause)'
+    'sl-pro': 'No (tests pause)',
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 },
 // ─── SCALE ──────────────────────────────────────────────────────────────────
@@ -432,7 +469,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unlimited',
     'sl-core': 'Unknown',
     'sl-advanced': 'Unknown',
-    'sl-pro': 'Unknown'
+    'sl-pro': 'Unknown',
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Number of Active Domains for A/B testing',
@@ -461,7 +501,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unlimited',
     'sl-core': '1 (Shopify store)',
     'sl-advanced': '1 (Shopify store)',
-    'sl-pro': '1 (Shopify store)'
+    'sl-pro': '1 (Shopify store)',
+    'vis-launch': 'Plan dependent — store based',
+    'vis-pro': 'Plan dependent — store based',
+    'vis-scale': 'Plan dependent — store based'
   }
 }, {
   attribute: 'Unlimited sub-domains',
@@ -490,7 +533,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': 'Unknown',
     'sl-advanced': 'Unknown',
-    'sl-pro': 'Unknown'
+    'sl-pro': 'Unknown',
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Custom domains (CNAME)',
@@ -519,7 +565,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': 'Unknown',
     'sl-advanced': 'Unknown',
-    'sl-pro': 'Unknown'
+    'sl-pro': 'Unknown',
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Unlimited Tests',
@@ -548,7 +597,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Unlimited Variations',
@@ -577,7 +629,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Active goals',
@@ -606,7 +661,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': 'Unknown',
     'sl-advanced': 'Unknown',
-    'sl-pro': 'Unknown'
+    'sl-pro': 'Unknown',
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'No. of Active Experiences',
@@ -635,7 +693,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': 'Unlimited',
     'sl-advanced': 'Unlimited',
-    'sl-pro': 'Unlimited'
+    'sl-pro': 'Unlimited',
+    'vis-launch': 'Unlimited',
+    'vis-pro': 'Unlimited',
+    'vis-scale': 'Unlimited'
   }
 }, {
   attribute: 'Number of Active Projects',
@@ -664,7 +725,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': '200',
     'sl-core': 'N/A',
     'sl-advanced': 'N/A',
-    'sl-pro': 'N/A'
+    'sl-pro': 'N/A',
+    'vis-launch': 'N/A',
+    'vis-pro': 'N/A',
+    'vis-scale': 'N/A'
   }
 }, {
   attribute: 'Unlimited Collaborators',
@@ -693,7 +757,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Deploys',
@@ -723,7 +790,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': 'N/A',
     'sl-advanced': 'N/A',
-    'sl-pro': 'N/A'
+    'sl-pro': 'N/A',
+    'vis-launch': false,
+    'vis-pro': false,
+    'vis-scale': false
   }
 },
 // ─── FEATURES ────────────────────────────────────────────────────────────────
@@ -754,7 +824,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Split URL Testing',
@@ -783,7 +856,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Multipage Testing',
@@ -812,7 +888,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Multivariate Testing',
@@ -841,7 +920,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Full Stack & Feature Flags',
@@ -870,7 +952,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': false,
+    'vis-pro': false,
+    'vis-scale': false
   }
 }, {
   attribute: 'Multi-armed bandit',
@@ -900,7 +985,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': false,
+    'vis-pro': false,
+    'vis-scale': false
   }
 }, {
   attribute: 'Mobile App Testing',
@@ -929,7 +1017,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': false,
+    'vis-pro': false,
+    'vis-scale': false
   }
 }, {
   attribute: 'Visual Editor',
@@ -958,7 +1049,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Advanced Code Editor',
@@ -987,7 +1081,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': false,
+    'vis-pro': false,
+    'vis-scale': false
   }
 }, {
   attribute: 'Unique JS/CSS per Variation',
@@ -1017,7 +1114,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Unique JS/CSS per Experiment',
@@ -1047,7 +1147,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Unique JS/CSS per Project',
@@ -1077,7 +1180,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': 'N/A',
     'sl-advanced': 'N/A',
-    'sl-pro': 'N/A'
+    'sl-pro': 'N/A',
+    'vis-launch': 'N/A',
+    'vis-pro': 'N/A',
+    'vis-scale': 'N/A'
   }
 }, {
   attribute: 'Traffic Source Targeting',
@@ -1106,7 +1212,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': false,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Time of Day Targeting',
@@ -1135,7 +1244,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Language Targeting',
@@ -1164,7 +1276,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'IP Targeting',
@@ -1193,7 +1308,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Geo Targeting',
@@ -1222,7 +1340,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': false,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Cookie Targeting',
@@ -1251,7 +1372,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Custom Javascript Targeting',
@@ -1280,7 +1404,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': false,
     'sl-advanced': 'Yes — JS API',
-    'sl-pro': 'Yes — JS API'
+    'sl-pro': 'Yes — JS API',
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Custom Tag Targeting',
@@ -1309,7 +1436,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Advanced / Custom Targeting',
@@ -1339,7 +1469,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': false,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'AND/OR Audience',
@@ -1369,7 +1502,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': false,
     'sl-core': false,
     'sl-advanced': 'Yes — OR logic',
-    'sl-pro': 'Yes — OR logic'
+    'sl-pro': 'Yes — OR logic',
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Custom segments per project',
@@ -1398,7 +1534,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': 'N/A',
     'sl-advanced': 'N/A',
-    'sl-pro': 'N/A'
+    'sl-pro': 'N/A',
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Advanced rule builder',
@@ -1428,7 +1567,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': false,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Post Segmentation',
@@ -1457,7 +1599,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Collision Prevention',
@@ -1487,7 +1632,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': 'Unknown',
     'sl-advanced': 'Unknown',
-    'sl-pro': 'Unknown'
+    'sl-pro': 'Unknown',
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Personalize experiences for segments',
@@ -1516,7 +1664,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': false,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Personalize experiences with behavior based targeting',
@@ -1545,7 +1696,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Frequentist & Bayesian Stats Engine',
@@ -1574,7 +1728,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Sequential Testing or T Test',
     'sl-core': 'Bayesian only',
     'sl-advanced': 'Bayesian only',
-    'sl-pro': 'Bayesian only'
+    'sl-pro': 'Bayesian only',
+    'vis-launch': 'Bayesian only',
+    'vis-pro': 'Bayesian only',
+    'vis-scale': 'Bayesian only'
   }
 }, {
   attribute: 'Sequential Testing',
@@ -1604,7 +1761,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': 'Unknown',
     'sl-advanced': 'Unknown',
-    'sl-pro': 'Unknown'
+    'sl-pro': 'Unknown',
+    'vis-launch': false,
+    'vis-pro': false,
+    'vis-scale': false
   }
 }, {
   attribute: 'Cross-domain Testing and Tracking',
@@ -1633,7 +1793,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': false,
+    'vis-pro': false,
+    'vis-scale': false
   }
 }, {
   attribute: 'Dynamic Revenue Tracking',
@@ -1662,7 +1825,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Google Analytics Goal Import',
@@ -1691,7 +1857,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': false,
     'sl-advanced': 'Yes — GA4 Beta',
-    'sl-pro': 'Yes — GA4 Beta'
+    'sl-pro': 'Yes — GA4 Beta',
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'GA Automatic Revenue Tracking',
@@ -1720,7 +1889,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': false,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Advanced Goals',
@@ -1749,7 +1921,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': 'Up to 3',
+    'vis-pro': 'Up to 3',
+    'vis-scale': 'Up to 3'
   }
 }, {
   attribute: 'Real-Time Reports',
@@ -1779,7 +1954,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Real Time Results',
@@ -1808,7 +1986,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Live Duration Insights',
@@ -1838,7 +2019,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': false,
     'sl-core': 'N/A',
     'sl-advanced': 'N/A',
-    'sl-pro': 'N/A'
+    'sl-pro': 'N/A',
+    'vis-launch': false,
+    'vis-pro': false,
+    'vis-scale': false
   }
 }, {
   attribute: 'Reports CSV Export',
@@ -1867,7 +2051,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Raw test data export',
@@ -1896,7 +2083,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Remove Report Data',
@@ -1926,7 +2116,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': 'Unknown',
     'sl-advanced': 'Unknown',
-    'sl-pro': 'Unknown'
+    'sl-pro': 'Unknown',
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Import & Export Templates',
@@ -1955,7 +2148,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': 'Unknown',
     'sl-advanced': 'Unknown',
-    'sl-pro': 'Unknown'
+    'sl-pro': 'Unknown',
+    'vis-launch': false,
+    'vis-pro': false,
+    'vis-scale': false
   }
 }, {
   attribute: 'Anti-flicker protection',
@@ -1984,7 +2180,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Javascript Event Pushing',
@@ -2013,7 +2212,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': false,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': 'No — GTM data-layer push via support only HOVER: Visually can send experience events to GTM\'s data layer, but only via support config (email support@visually.io). Not self-serve.',
+    'vis-pro': 'No — GTM data-layer push via support only HOVER: Visually can send experience events to GTM\'s data layer, but only via support config (email support@visually.io). Not self-serve.',
+    'vis-scale': 'No — GTM data-layer push via support only HOVER: Visually can send experience events to GTM\'s data layer, but only via support config (email support@visually.io). Not self-serve.'
   }
 }, {
   attribute: 'Manual Activation',
@@ -2043,7 +2245,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Dynamic web triggers',
@@ -2073,7 +2278,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': 'Unknown',
     'sl-advanced': 'Unknown',
-    'sl-pro': 'Unknown'
+    'sl-pro': 'Unknown',
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Traffic Allocation across projects',
@@ -2103,7 +2311,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': 'N/A',
     'sl-advanced': 'N/A',
-    'sl-pro': 'N/A'
+    'sl-pro': 'N/A',
+    'vis-launch': 'N/A',
+    'vis-pro': 'N/A',
+    'vis-scale': 'N/A'
   }
 }, {
   attribute: 'Traffic Allocation availability for agencies',
@@ -2132,7 +2343,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': 'N/A',
     'sl-advanced': 'N/A',
-    'sl-pro': 'N/A'
+    'sl-pro': 'N/A',
+    'vis-launch': 'N/A',
+    'vis-pro': 'N/A',
+    'vis-scale': 'N/A'
   }
 }, {
   attribute: 'QA Wizard',
@@ -2162,7 +2376,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': 'Yes — Preview Mode',
     'sl-advanced': 'Yes — Preview Mode',
-    'sl-pro': 'Yes — Preview Mode'
+    'sl-pro': 'Yes — Preview Mode',
+    'vis-launch': false,
+    'vis-pro': false,
+    'vis-scale': false
   }
 }, {
   attribute: 'Environments',
@@ -2192,7 +2409,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': false,
+    'vis-pro': false,
+    'vis-scale': false
   }
 }, {
   attribute: 'Projects available to agencies',
@@ -2221,7 +2441,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': 'N/A',
     'sl-advanced': 'N/A',
-    'sl-pro': 'N/A'
+    'sl-pro': 'N/A',
+    'vis-launch': 'N/A',
+    'vis-pro': 'N/A',
+    'vis-scale': 'N/A'
   }
 }, {
   attribute: 'Bulk Editing',
@@ -2251,7 +2474,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Data segregation',
@@ -2281,7 +2507,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'SRM Checks',
@@ -2311,7 +2540,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': 'Unknown',
     'sl-advanced': 'Unknown',
-    'sl-pro': 'Unknown'
+    'sl-pro': 'Unknown',
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Knowledge base',
@@ -2341,7 +2573,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': false,
+    'vis-pro': false,
+    'vis-scale': false
   }
 }, {
   attribute: 'Add observations',
@@ -2371,7 +2606,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': false,
+    'vis-pro': false,
+    'vis-scale': false
   }
 }, {
   attribute: 'Change History',
@@ -2400,7 +2638,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': 'Unknown',
     'sl-advanced': 'Unknown',
-    'sl-pro': 'Unknown'
+    'sl-pro': 'Unknown',
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Live Log',
@@ -2430,7 +2671,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': 'Unknown',
     'sl-advanced': 'Unknown',
-    'sl-pro': 'Unknown'
+    'sl-pro': 'Unknown',
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'API Access',
@@ -2459,7 +2703,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': false,
     'sl-advanced': 'Yes — JS API',
-    'sl-pro': 'Yes — JS API'
+    'sl-pro': 'Yes — JS API',
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Easy One Tag Integrations',
@@ -2488,7 +2735,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Number of 3rd party integrations',
@@ -2517,7 +2767,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': '143',
     'sl-core': '10+',
     'sl-advanced': '10+',
-    'sl-pro': '10+'
+    'sl-pro': '10+',
+    'vis-launch': '18',
+    'vis-pro': '18',
+    'vis-scale': '18'
   }
 }, {
   attribute: 'Experiment Heatmaps',
@@ -2546,7 +2799,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': 'No — integrates with 3rd-party heatmaps HOVER: Visually integrates with heatmap providers but does not have heatmaps built in.',
+    'vis-pro': 'No — integrates with 3rd-party heatmaps HOVER: Visually integrates with heatmap providers but does not have heatmaps built in.',
+    'vis-scale': 'No — integrates with 3rd-party heatmaps HOVER: Visually integrates with heatmap providers but does not have heatmaps built in.'
   }
 }, {
   attribute: 'Custom Popups',
@@ -2576,7 +2832,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Convert Signals™',
@@ -2606,7 +2865,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': false,
     'sl-core': 'N/A',
     'sl-advanced': 'N/A',
-    'sl-pro': 'N/A'
+    'sl-pro': 'N/A',
+    'vis-launch': 'N/A',
+    'vis-pro': 'N/A',
+    'vis-scale': 'N/A'
   }
 },
 // ─── GOVERNANCE ──────────────────────────────────────────────────────────────
@@ -2637,7 +2899,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': false,
+    'vis-pro': false,
+    'vis-scale': false
   }
 }, {
   attribute: 'ISO 27001 Certified',
@@ -2666,7 +2931,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': false,
+    'vis-pro': false,
+    'vis-scale': false
   }
 }, {
   attribute: 'PCI-DSS compliance',
@@ -2695,7 +2963,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': 'Unknown',
     'sl-advanced': 'Unknown',
-    'sl-pro': 'Unknown'
+    'sl-pro': 'Unknown',
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Single Sign On (SSO)',
@@ -2724,7 +2995,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': 'Login via Shopify',
     'sl-advanced': 'Unknown',
-    'sl-pro': 'Unknown'
+    'sl-pro': 'Unknown',
+    'vis-launch': 'Login via Shopify',
+    'vis-pro': 'Login via Shopify',
+    'vis-scale': 'Login via Shopify'
   }
 }, {
   attribute: 'Role Based Permissions',
@@ -2753,7 +3027,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': 'Unknown',
     'sl-advanced': 'Unknown',
-    'sl-pro': 'Unknown'
+    'sl-pro': 'Unknown',
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Bring your own ID (BYOID)',
@@ -2783,7 +3060,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': false,
+    'vis-pro': false,
+    'vis-scale': false
   }
 }, {
   attribute: 'EU based servers',
@@ -2812,7 +3092,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': false,
+    'vis-pro': false,
+    'vis-scale': false
   }
 }, {
   attribute: 'Third Party cookies',
@@ -2841,7 +3124,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': 'Unknown',
     'sl-advanced': 'Unknown',
-    'sl-pro': 'Unknown'
+    'sl-pro': 'Unknown',
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Do Not Track Browser',
@@ -2871,7 +3157,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Data Protection Addendum',
@@ -2900,7 +3189,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Non-PII Cookie lifetime',
@@ -2929,7 +3221,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': 'Unknown',
     'sl-advanced': 'Unknown',
-    'sl-pro': 'Unknown'
+    'sl-pro': 'Unknown',
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Version Control for Tracking Script',
@@ -2959,7 +3254,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': 'Unknown',
     'sl-core': 'Yes — GitHub compatible',
     'sl-advanced': 'Yes — GitHub compatible',
-    'sl-pro': 'Yes — GitHub compatible'
+    'sl-pro': 'Yes — GitHub compatible',
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Support Opt Out Feature',
@@ -2988,7 +3286,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 },
 // ─── SUPPORT ─────────────────────────────────────────────────────────────────
@@ -3019,7 +3320,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Chat support',
@@ -3048,7 +3352,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': true,
     'sl-advanced': true,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': true,
+    'vis-pro': true,
+    'vis-scale': true
   }
 }, {
   attribute: 'Phone support',
@@ -3077,7 +3384,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': false,
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': false
+    'sl-pro': false,
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Dedicated account manager',
@@ -3106,7 +3416,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': true,
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }, {
   attribute: 'Premium Onboarding',
@@ -3135,7 +3448,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-enterprise': false,
     'sl-core': false,
     'sl-advanced': false,
-    'sl-pro': true
+    'sl-pro': true,
+    'vis-launch': 'Unknown',
+    'vis-pro': 'Unknown',
+    'vis-scale': 'Unknown'
   }
 }];
 
