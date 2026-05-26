@@ -4232,7 +4232,7 @@ export const ConvertComparisonFramework = () => {
                       }} className="hover:underline">Deselect all</button>
                         </div>
                       </div>
-                      <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+                      <div className="grid grid-cols-3 lg:grid-cols-5 gap-3">
                         {DIMENSIONS.map(dim => <button key={dim.id} onClick={() => toggleDimension(dim.id)} style={{
                       display: 'flex',
                       flexDirection: 'column',
