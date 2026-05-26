@@ -4074,7 +4074,7 @@ export const ConvertComparisonFramework = () => {
       <div className="h-full">
         <main className="min-h-screen overflow-hidden" style={{
         fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif',
-        backgroundImage: 'url(/newbgHome.png)',
+        backgroundImage: 'url(/newbgHome.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
         backgroundRepeat: 'no-repeat',
