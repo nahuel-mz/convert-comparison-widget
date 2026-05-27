@@ -726,9 +726,9 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-core': 'N/A',
     'sl-advanced': 'N/A',
     'sl-pro': 'N/A',
-    'vis-launch': 'N/A',
-    'vis-pro': 'N/A',
-    'vis-scale': 'N/A'
+    'vis-launch': false,
+    'vis-pro': false,
+    'vis-scale': false
   }
 }, {
   attribute: 'Unlimited Collaborators',
