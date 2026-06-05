@@ -30,6 +30,14 @@ export interface ComparisonPdfDocumentProps {
 
 function renderValue(val: ValueType | undefined): { text: string; variant: 'normal' | 'muted' | 'true' } {
   if (val === undefined || val === null) return { text: '—', variant: 'muted' }
+  if (typeof val === 'string') {
+    // The PDF is static and can't show tooltips — strip any `HOVER:` annotation
+    // and coerce the literal 'true'/'false' primaries to checks/crosses.
+    const hoverIndex = val.search(/\s*(?:\(?ON-)?HOVER:/)
+    if (hoverIndex !== -1) val = val.slice(0, hoverIndex).trim().replace(/\($/, '').trim() as ValueType
+    if (val === 'true') return { text: '✓', variant: 'true' }
+    if (val === 'false') return { text: '✗', variant: 'muted' }
+  }
   if (val === true) return { text: '✓', variant: 'true' }
   if (val === false) return { text: '✗', variant: 'muted' }
   if (
