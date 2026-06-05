@@ -995,8 +995,8 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
   dimension: 'features',
   values: {
     'convert-growth': false,
-    'convert-pro': false,
-    'convert-enterprise': false,
+    'convert-pro': 'true HOVER: Mobile app testing is possible with the Convert Android SDK',
+    'convert-enterprise': 'true HOVER: Mobile app testing is possible with the Convert Android SDK',
     'opt-essential': 'With Feature Experimentation',
     'opt-enhanced': 'With Feature Experimentation',
     'opt-advanced': 'With Feature Experimentation',
@@ -3464,10 +3464,11 @@ const parseValueTooltip = (value: string | boolean | 'Unknown' | 'Gated' | 'Not 
   if (!hoverMatch) return {
     primaryValue: value
   };
-  const primaryValue = value.slice(0, hoverMatch.index).trim().replace(/\($/, '').trim();
+  const rawPrimary = value.slice(0, hoverMatch.index).trim().replace(/\($/, '').trim();
   const tooltip = hoverMatch[1].trim().replace(/\)$/, '').trim();
+  const primaryValue = rawPrimary === 'true' ? true : rawPrimary === 'false' ? false : rawPrimary || value;
   return {
-    primaryValue: primaryValue || value,
+    primaryValue,
     tooltip
   };
 };
@@ -3509,10 +3510,11 @@ const ValueCell = ({
   const parsedValue = parseValueTooltip(value);
   if (typeof parsedValue.primaryValue === 'boolean') {
     if (parsedValue.primaryValue) {
-      return <div className="inline-flex items-center justify-center">
+      return <div className="inline-flex items-center justify-center gap-1">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M2.5 7L5.5 10L11.5 4" stroke={isConvertCol ? '#0052CC' : '#0066FF'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
+          {parsedValue.tooltip && <InlineTooltip content={parsedValue.tooltip} />}
         </div>;
     }
     return <div className="inline-flex items-center justify-center">
