@@ -164,6 +164,22 @@ const COMPETITORS: Competitor[] = [{
     id: 'vis-scale',
     name: 'Scale'
   }]
+}, {
+  id: 'zoho-pagesense',
+  name: 'Zoho PageSense',
+  plans: [{
+    id: 'zps-free',
+    name: 'Forever Free'
+  }, {
+    id: 'zps-pro',
+    name: 'Professional'
+  }, {
+    id: 'zps-enterprise',
+    name: 'Enterprise'
+  }, {
+    id: 'zps-agency',
+    name: 'Agency'
+  }]
 }];
 const CONVERT_PLANS: PlanData[] = [{
   id: 'convert-growth',
@@ -210,7 +226,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Up to 1m store visitors — gated thereafter',
     'vis-launch': 'Order-based (orders/mo)',
     'vis-pro': 'Order-based (orders/mo)',
-    'vis-scale': 'Order-based (orders/mo)'
+    'vis-scale': 'Order-based (orders/mo)',
+    'zps-free': 'Up to 5,000 MTUs/mo',
+    'zps-pro': '10,000 - 1,000,000 MTUs/mo',
+    'zps-enterprise': '10,000 - 1,000,000 MTUs/mo',
+    'zps-agency': '10,000 - 1,000,000 MTUs/mo'
   }
 }, {
   attribute: 'Price per month (monthly plan)',
@@ -242,7 +262,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Annual only',
     'vis-launch': '$630 - $1800 (then gated)',
     'vis-pro': '$15/mo - $3600/mo (then gated)',
-    'vis-scale': '$1200/mo - $8280/mo (then gated)'
+    'vis-scale': '$1200/mo - $8280/mo (then gated)',
+    'zps-free': '$0',
+    'zps-pro': '$20 - $699/mo',
+    'zps-enterprise': '$49 - $1299/mo',
+    'zps-agency': 'Not available'
   }
 }, {
   attribute: 'Price per month (annual plan)',
@@ -275,7 +299,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': '$699/mo - $1499/mo, then gated',
     'vis-launch': '$567 - $1620',
     'vis-pro': '$13 - $3240/mo',
-    'vis-scale': '$1080/mo - $7452/mo'
+    'vis-scale': '$1080/mo - $7452/mo',
+    'zps-free': '$0',
+    'zps-pro': '$12 - $420/mo',
+    'zps-enterprise': '$30 - $780/mo',
+    'zps-agency': '$24.50 - $519/mo'
   }
 }, {
   attribute: 'Annual price for whole year',
@@ -308,7 +336,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': '$8388/yr - $17988/yr',
     'vis-launch': '$6805 - $19940',
     'vis-pro': '$156 - $38880',
-    'vis-scale': '$12960 - $89424'
+    'vis-scale': '$12960 - $89424',
+    'zps-free': '$0',
+    'zps-pro': '$144 - $5040/yr',
+    'zps-enterprise': '$360 - $9360/yr',
+    'zps-agency': '$294 - $6235/yr'
   }
 }, {
   attribute: 'Forced plan upgrades',
@@ -341,7 +373,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': false,
+    'zps-agency': false
   }
 }, {
   attribute: 'Discounts 2 years',
@@ -373,7 +409,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Unknown',
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': 'N/A',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': 'Unknown',
+    'zps-agency': 'Unknown'
   }
 }, {
   attribute: 'Discounts 3 years',
@@ -405,7 +445,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Unknown',
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': 'N/A',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': 'Unknown',
+    'zps-agency': 'Unknown'
   }
 }, {
   attribute: 'Auto-upgrade',
@@ -438,7 +482,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'No (tests pause)',
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': 'N/A',
+    'zps-pro': false,
+    'zps-enterprise': false,
+    'zps-agency': false
   }
 },
 // ─── SCALE ──────────────────────────────────────────────────────────────────
@@ -472,7 +520,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Unknown',
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': '1 Month',
+    'zps-pro': '6 Months',
+    'zps-enterprise': '12 Months',
+    'zps-agency': 'Unknown'
   }
 }, {
   attribute: 'Number of Active Domains for A/B testing',
@@ -504,7 +556,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': '1 (Shopify store)',
     'vis-launch': 'Plan dependent — store based',
     'vis-pro': 'Plan dependent — store based',
-    'vis-scale': 'Plan dependent — store based'
+    'vis-scale': 'Plan dependent — store based',
+    'zps-free': 'N/A',
+    'zps-pro': 'N/A',
+    'zps-enterprise': 'Unknown',
+    'zps-agency': 'Unknown'
   }
 }, {
   attribute: 'Unlimited sub-domains',
@@ -536,7 +592,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Unknown',
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': 'N/A',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': 'Unknown',
+    'zps-agency': 'Unknown'
   }
 }, {
   attribute: 'Custom domains (CNAME)',
@@ -568,7 +628,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Unknown',
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': false,
+    'zps-pro': 'Unknown',
+    'zps-enterprise': 'Unknown',
+    'zps-agency': 'Unknown'
   }
 }, {
   attribute: 'Unlimited Tests',
@@ -600,7 +664,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': 'N/A',
+    'zps-pro': 'N/A',
+    'zps-enterprise': 'Unknown',
+    'zps-agency': 'Unknown'
   }
 }, {
   attribute: 'Unlimited Variations',
@@ -632,7 +700,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': 'N/A',
+    'zps-pro': 'N/A',
+    'zps-enterprise': 'Unknown',
+    'zps-agency': 'Unknown'
   }
 }, {
   attribute: 'Active goals',
@@ -664,7 +736,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Unknown',
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': '5 Goals',
+    'zps-pro': '30 Goals',
+    'zps-enterprise': '50 Goals',
+    'zps-agency': 'Unknown'
   }
 }, {
   attribute: 'No. of Active Experiences',
@@ -696,7 +772,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Unlimited',
     'vis-launch': 'Unlimited',
     'vis-pro': 'Unlimited',
-    'vis-scale': 'Unlimited'
+    'vis-scale': 'Unlimited',
+    'zps-free': 'N/A',
+    'zps-pro': 'N/A',
+    'zps-enterprise': 'Unknown',
+    'zps-agency': 'Unknown'
   }
 }, {
   attribute: 'Number of Active Projects',
@@ -728,7 +808,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'N/A',
     'vis-launch': false,
     'vis-pro': false,
-    'vis-scale': false
+    'vis-scale': false,
+    'zps-free': '1 Project',
+    'zps-pro': '3 Projects',
+    'zps-enterprise': '10 Projects',
+    'zps-agency': 'Unlimited (multi-client)'
   }
 }, {
   attribute: 'Unlimited Collaborators',
@@ -760,7 +844,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': true,
+    'zps-pro': true,
+    'zps-enterprise': true,
+    'zps-agency': false
   }
 }, {
   attribute: 'Deploys',
@@ -793,7 +881,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'N/A',
     'vis-launch': false,
     'vis-pro': false,
-    'vis-scale': false
+    'vis-scale': false,
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 },
 // ─── FEATURES ────────────────────────────────────────────────────────────────
@@ -827,7 +919,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Split URL Testing',
@@ -859,7 +955,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Multipage Testing',
@@ -891,7 +991,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': false,
+    'zps-agency': false
   }
 }, {
   attribute: 'Multivariate Testing',
@@ -923,7 +1027,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': false,
+    'zps-agency': false
   }
 }, {
   attribute: 'Full Stack & Feature Flags',
@@ -955,7 +1063,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': false,
     'vis-pro': false,
-    'vis-scale': false
+    'vis-scale': false,
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Multi-armed bandit',
@@ -988,7 +1100,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': false,
     'vis-pro': false,
-    'vis-scale': false
+    'vis-scale': false,
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Mobile App Testing',
@@ -1020,7 +1136,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': false,
     'vis-pro': false,
-    'vis-scale': false
+    'vis-scale': false,
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Visual Editor',
@@ -1052,7 +1172,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Advanced Code Editor',
@@ -1084,7 +1208,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': false,
     'vis-pro': false,
-    'vis-scale': false
+    'vis-scale': false,
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Unique JS/CSS per Variation',
@@ -1117,7 +1245,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Unique JS/CSS per Experiment',
@@ -1150,7 +1282,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Unique JS/CSS per Project',
@@ -1183,7 +1319,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'N/A',
     'vis-launch': 'N/A',
     'vis-pro': 'N/A',
-    'vis-scale': 'N/A'
+    'vis-scale': 'N/A',
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': false,
+    'zps-agency': false
   }
 }, {
   attribute: 'Traffic Source Targeting',
@@ -1215,7 +1355,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Time of Day Targeting',
@@ -1247,7 +1391,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Language Targeting',
@@ -1279,7 +1427,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'IP Targeting',
@@ -1311,7 +1463,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': true,
+    'zps-pro': true,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Geo Targeting',
@@ -1343,7 +1499,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Cookie Targeting',
@@ -1375,7 +1535,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Custom Javascript Targeting',
@@ -1407,7 +1571,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Yes — JS API',
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Custom Tag Targeting',
@@ -1439,7 +1607,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Advanced / Custom Targeting',
@@ -1472,7 +1644,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': false,
+    'zps-pro': 'Unknown',
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'AND/OR Audience',
@@ -1505,7 +1681,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Yes — OR logic',
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Custom segments per project',
@@ -1537,7 +1717,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'N/A',
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': 'Unknown',
+    'zps-pro': '30 Custom dimensions',
+    'zps-enterprise': '50 Custom dimensions',
+    'zps-agency': 'Unknown'
   }
 }, {
   attribute: 'Advanced rule builder',
@@ -1570,7 +1754,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Post Segmentation',
@@ -1602,7 +1790,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Collision Prevention',
@@ -1635,7 +1827,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Unknown',
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Personalize experiences for segments',
@@ -1667,7 +1863,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Personalize experiences with behavior based targeting',
@@ -1699,7 +1899,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Frequentist & Bayesian Stats Engine',
@@ -1731,7 +1935,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Bayesian only',
     'vis-launch': 'Bayesian only',
     'vis-pro': 'Bayesian only',
-    'vis-scale': 'Bayesian only'
+    'vis-scale': 'Bayesian only',
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Sequential Testing',
@@ -1764,7 +1972,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Unknown',
     'vis-launch': false,
     'vis-pro': false,
-    'vis-scale': false
+    'vis-scale': false,
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': false,
+    'zps-agency': false
   }
 }, {
   attribute: 'Cross-domain Testing and Tracking',
@@ -1796,7 +2008,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': false,
     'vis-pro': false,
-    'vis-scale': false
+    'vis-scale': false,
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Dynamic Revenue Tracking',
@@ -1828,7 +2044,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Google Analytics Goal Import',
@@ -1860,7 +2080,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Yes — GA4 Beta',
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': false,
+    'zps-agency': false
   }
 }, {
   attribute: 'GA Automatic Revenue Tracking',
@@ -1892,7 +2116,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': false,
+    'zps-agency': false
   }
 }, {
   attribute: 'Advanced Goals',
@@ -1924,7 +2152,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': 'Up to 3',
     'vis-pro': 'Up to 3',
-    'vis-scale': 'Up to 3'
+    'vis-scale': 'Up to 3',
+    'zps-free': true,
+    'zps-pro': true,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Real-Time Reports',
@@ -1957,7 +2189,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': true,
+    'zps-pro': true,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Real Time Results',
@@ -1989,7 +2225,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': true,
+    'zps-pro': true,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Live Duration Insights',
@@ -2022,7 +2262,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'N/A',
     'vis-launch': false,
     'vis-pro': false,
-    'vis-scale': false
+    'vis-scale': false,
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': 'Unknown',
+    'zps-agency': 'Unknown'
   }
 }, {
   attribute: 'Reports CSV Export',
@@ -2054,7 +2298,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': true,
+    'zps-pro': true,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Raw test data export',
@@ -2086,7 +2334,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': 'Unknown',
+    'zps-agency': 'Unknown'
   }
 }, {
   attribute: 'Remove Report Data',
@@ -2119,7 +2371,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Unknown',
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': false,
+    'zps-agency': false
   }
 }, {
   attribute: 'Import & Export Templates',
@@ -2151,7 +2407,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Unknown',
     'vis-launch': false,
     'vis-pro': false,
-    'vis-scale': false
+    'vis-scale': false,
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': false,
+    'zps-agency': false
   }
 }, {
   attribute: 'Anti-flicker protection',
@@ -2183,7 +2443,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': true,
+    'zps-pro': true,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Javascript Event Pushing',
@@ -2215,7 +2479,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': 'No — GTM data-layer push via support only HOVER: Visually can send experience events to GTM\'s data layer, but only via support config (email support@visually.io). Not self-serve.',
     'vis-pro': 'No — GTM data-layer push via support only HOVER: Visually can send experience events to GTM\'s data layer, but only via support config (email support@visually.io). Not self-serve.',
-    'vis-scale': 'No — GTM data-layer push via support only HOVER: Visually can send experience events to GTM\'s data layer, but only via support config (email support@visually.io). Not self-serve.'
+    'vis-scale': 'No — GTM data-layer push via support only HOVER: Visually can send experience events to GTM\'s data layer, but only via support config (email support@visually.io). Not self-serve.',
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Manual Activation',
@@ -2248,7 +2516,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Dynamic web triggers',
@@ -2281,7 +2553,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Unknown',
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Traffic Allocation across projects',
@@ -2314,7 +2590,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'N/A',
     'vis-launch': 'N/A',
     'vis-pro': 'N/A',
-    'vis-scale': 'N/A'
+    'vis-scale': 'N/A',
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': false,
+    'zps-agency': true
   }
 }, {
   attribute: 'Traffic Allocation availability for agencies',
@@ -2346,7 +2626,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'N/A',
     'vis-launch': 'N/A',
     'vis-pro': 'N/A',
-    'vis-scale': 'N/A'
+    'vis-scale': 'N/A',
+    'zps-free': 'N/A',
+    'zps-pro': 'N/A',
+    'zps-enterprise': 'N/A',
+    'zps-agency': true
   }
 }, {
   attribute: 'QA Wizard',
@@ -2379,7 +2663,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Yes — Preview Mode',
     'vis-launch': false,
     'vis-pro': false,
-    'vis-scale': false
+    'vis-scale': false,
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Environments',
@@ -2412,7 +2700,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': false,
     'vis-pro': false,
-    'vis-scale': false
+    'vis-scale': false,
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': 'Full Stack only',
+    'zps-agency': 'Full Stack only'
   }
 }, {
   attribute: 'Projects available to agencies',
@@ -2444,7 +2736,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'N/A',
     'vis-launch': 'N/A',
     'vis-pro': 'N/A',
-    'vis-scale': 'N/A'
+    'vis-scale': 'N/A',
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': false,
+    'zps-agency': true
   }
 }, {
   attribute: 'Bulk Editing',
@@ -2477,7 +2773,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': 'Unknown',
+    'zps-agency': 'Unknown'
   }
 }, {
   attribute: 'Data segregation',
@@ -2510,7 +2810,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': 'Unknown',
+    'zps-agency': true
   }
 }, {
   attribute: 'SRM Checks',
@@ -2543,7 +2847,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Unknown',
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': 'Unknown',
+    'zps-agency': 'Unknown'
   }
 }, {
   attribute: 'Knowledge base',
@@ -2576,7 +2884,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': false,
     'vis-pro': false,
-    'vis-scale': false
+    'vis-scale': false,
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': false,
+    'zps-agency': false
   }
 }, {
   attribute: 'Add observations',
@@ -2609,7 +2921,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': false,
     'vis-pro': false,
-    'vis-scale': false
+    'vis-scale': false,
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': false,
+    'zps-agency': false
   }
 }, {
   attribute: 'Change History',
@@ -2641,7 +2957,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Unknown',
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Live Log',
@@ -2674,7 +2994,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Unknown',
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': 'Unknown',
+    'zps-agency': 'Unknown'
   }
 }, {
   attribute: 'API Access',
@@ -2706,7 +3030,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Yes — JS API',
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Easy One Tag Integrations',
@@ -2738,7 +3066,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': true,
+    'zps-pro': true,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Number of 3rd party integrations',
@@ -2770,7 +3102,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': '10+',
     'vis-launch': '18',
     'vis-pro': '18',
-    'vis-scale': '18'
+    'vis-scale': '18',
+    'zps-free': '16',
+    'zps-pro': '16',
+    'zps-enterprise': '16',
+    'zps-agency': '16'
   }
 }, {
   attribute: 'Experiment Heatmaps',
@@ -2802,7 +3138,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': 'No — integrates with 3rd-party heatmaps HOVER: Visually integrates with heatmap providers but does not have heatmaps built in.',
     'vis-pro': 'No — integrates with 3rd-party heatmaps HOVER: Visually integrates with heatmap providers but does not have heatmaps built in.',
-    'vis-scale': 'No — integrates with 3rd-party heatmaps HOVER: Visually integrates with heatmap providers but does not have heatmaps built in.'
+    'vis-scale': 'No — integrates with 3rd-party heatmaps HOVER: Visually integrates with heatmap providers but does not have heatmaps built in.',
+    'zps-free': true,
+    'zps-pro': true,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Custom Popups',
@@ -2835,7 +3175,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': false,
+    'zps-pro': true,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Convert Signals™',
@@ -2868,7 +3212,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'N/A',
     'vis-launch': 'N/A',
     'vis-pro': 'N/A',
-    'vis-scale': 'N/A'
+    'vis-scale': 'N/A',
+    'zps-free': 'Session recordings',
+    'zps-pro': 'Session recordings',
+    'zps-enterprise': 'Session recordings',
+    'zps-agency': 'Session recordings'
   }
 },
 // ─── GOVERNANCE ──────────────────────────────────────────────────────────────
@@ -2902,7 +3250,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': false,
     'vis-pro': false,
-    'vis-scale': false
+    'vis-scale': false,
+    'zps-free': true,
+    'zps-pro': true,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'ISO 27001 Certified',
@@ -2934,7 +3286,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': false,
     'vis-pro': false,
-    'vis-scale': false
+    'vis-scale': false,
+    'zps-free': true,
+    'zps-pro': true,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'PCI-DSS compliance',
@@ -2966,7 +3322,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Unknown',
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': true,
+    'zps-pro': true,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Single Sign On (SSO)',
@@ -2998,7 +3358,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Unknown',
     'vis-launch': 'Login via Shopify',
     'vis-pro': 'Login via Shopify',
-    'vis-scale': 'Login via Shopify'
+    'vis-scale': 'Login via Shopify',
+    'zps-free': true,
+    'zps-pro': true,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Role Based Permissions',
@@ -3030,7 +3394,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Unknown',
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': true,
+    'zps-pro': true,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Bring your own ID (BYOID)',
@@ -3063,7 +3431,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': false,
     'vis-pro': false,
-    'vis-scale': false
+    'vis-scale': false,
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': false,
+    'zps-agency': false
   }
 }, {
   attribute: 'EU based servers',
@@ -3095,7 +3467,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': false,
     'vis-pro': false,
-    'vis-scale': false
+    'vis-scale': false,
+    'zps-free': true,
+    'zps-pro': true,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Third Party cookies',
@@ -3127,7 +3503,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Unknown',
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': true,
+    'zps-pro': true,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Do Not Track Browser',
@@ -3160,7 +3540,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': false,
+    'zps-agency': false
   }
 }, {
   attribute: 'Data Protection Addendum',
@@ -3192,7 +3576,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': true,
+    'zps-pro': true,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Non-PII Cookie lifetime',
@@ -3224,7 +3612,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Unknown',
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': '6 months',
+    'zps-pro': '6 months',
+    'zps-enterprise': '6 months',
+    'zps-agency': '6 months'
   }
 }, {
   attribute: 'Version Control for Tracking Script',
@@ -3257,7 +3649,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': 'Yes — GitHub compatible',
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': 'Unknown',
+    'zps-agency': 'Unknown'
   }
 }, {
   attribute: 'Support Opt Out Feature',
@@ -3289,7 +3685,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': true,
+    'zps-pro': true,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 },
 // ─── SUPPORT ─────────────────────────────────────────────────────────────────
@@ -3323,7 +3723,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': true,
+    'zps-pro': true,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Chat support',
@@ -3355,7 +3759,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': true,
     'vis-pro': true,
-    'vis-scale': true
+    'vis-scale': true,
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': 'Unknown',
+    'zps-agency': true
   }
 }, {
   attribute: 'Phone support',
@@ -3387,7 +3795,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': false,
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': true,
+    'zps-pro': true,
+    'zps-enterprise': true,
+    'zps-agency': true
   }
 }, {
   attribute: 'Dedicated account manager',
@@ -3419,7 +3831,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': false,
+    'zps-agency': true
   }
 }, {
   attribute: 'Premium Onboarding',
@@ -3451,7 +3867,11 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'sl-pro': true,
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
-    'vis-scale': 'Unknown'
+    'vis-scale': 'Unknown',
+    'zps-free': false,
+    'zps-pro': false,
+    'zps-enterprise': false,
+    'zps-agency': false
   }
 }];
 
