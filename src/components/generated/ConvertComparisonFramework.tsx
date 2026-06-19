@@ -374,10 +374,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
     'vis-scale': 'Unknown',
-    'zps-free': false,
-    'zps-pro': false,
-    'zps-enterprise': false,
-    'zps-agency': false
+    'zps-free': 'N/A',
+    'zps-pro': 'Unknown',
+    'zps-enterprise': 'Unknown',
+    'zps-agency': 'Unknown'
   }
 }, {
   attribute: 'Discounts 2 years',
@@ -2047,8 +2047,8 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'vis-scale': true,
     'zps-free': 'Unknown',
     'zps-pro': 'Unknown',
-    'zps-enterprise': true,
-    'zps-agency': true
+    'zps-enterprise': 'true HOVER: Revenue goal type',
+    'zps-agency': 'true HOVER: Revenue goal type'
   }
 }, {
   attribute: 'Google Analytics Goal Import',
@@ -2444,10 +2444,10 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'vis-launch': true,
     'vis-pro': true,
     'vis-scale': true,
-    'zps-free': true,
-    'zps-pro': true,
-    'zps-enterprise': true,
-    'zps-agency': true
+    'zps-free': 'true HOVER: async snippet option',
+    'zps-pro': 'true HOVER: async snippet option',
+    'zps-enterprise': 'true HOVER: async snippet option',
+    'zps-agency': 'true HOVER: async snippet option'
   }
 }, {
   attribute: 'Javascript Event Pushing',
@@ -3033,8 +3033,8 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'vis-scale': true,
     'zps-free': 'Unknown',
     'zps-pro': 'Unknown',
-    'zps-enterprise': true,
-    'zps-agency': true
+    'zps-enterprise': 'true HOVER: REST API + OAuth 2.0',
+    'zps-agency': 'true HOVER: REST API + OAuth 2.0'
   }
 }, {
   attribute: 'Easy One Tag Integrations',
