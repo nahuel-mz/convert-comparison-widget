@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, Info, X, CurrencyDollar, Headphones, Database, ShieldCheck, Lightning, CaretLeft, CaretDown, SlidersHorizontal, ArrowLeft, MagnifyingGlass } from '@phosphor-icons/react';
 import { pdf, PDFViewer } from '@react-pdf/renderer';
@@ -3910,15 +3911,34 @@ const InlineTooltip = ({
   content: string;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [coords, setCoords] = useState<{ left: number; top: number } | null>(null);
+  const triggerRef = React.useRef<HTMLButtonElement>(null);
   const tooltipId = React.useId();
-  return <div className="relative inline-block" onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
-      <button type="button" aria-label="Show more information" aria-describedby={isOpen ? tooltipId : undefined} aria-expanded={isOpen} onFocus={() => setIsOpen(true)} onBlur={() => setIsOpen(false)} onClick={() => setIsOpen(v => !v)} className="inline-flex items-center justify-center rounded-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:text-foreground focus-visible:outline-none">
+  const open = () => {
+    const el = triggerRef.current;
+    if (el) {
+      const r = el.getBoundingClientRect();
+      // Anchor to the trigger in viewport space so the tooltip can escape the
+      // table's overflow-auto scroll container (which would otherwise clip it).
+      setCoords({ left: r.left + r.width / 2, top: r.top });
+    }
+    setIsOpen(true);
+  };
+  const close = () => setIsOpen(false);
+  return <span className="relative inline-block" onMouseEnter={open} onMouseLeave={close}>
+      <button ref={triggerRef} type="button" aria-label="Show more information" aria-describedby={isOpen ? tooltipId : undefined} aria-expanded={isOpen} onFocus={open} onBlur={close} onClick={() => isOpen ? close() : open()} className="inline-flex items-center justify-center rounded-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:text-foreground focus-visible:outline-none">
         <Info className="w-3 h-3 cursor-help" />
       </button>
-      <div id={tooltipId} role="tooltip" className={cn('absolute bottom-full left-1/2 z-[200] mb-2 w-52 -translate-x-1/2 rounded border border-border/20 bg-[#2A3341] p-2 text-[10px] text-white shadow-xl pointer-events-none transition-opacity duration-150', isOpen ? 'opacity-100' : 'opacity-0')}>
+      {isOpen && coords && createPortal(<div id={tooltipId} role="tooltip" style={{
+      position: 'fixed',
+      left: coords.left,
+      top: coords.top - 8,
+      transform: 'translate(-50%, -100%)',
+      zIndex: 1000
+    }} className="w-52 rounded border border-border/20 bg-[#2A3341] p-2 text-[10px] text-white shadow-xl pointer-events-none">
         <span>{content}</span>
-      </div>
-    </div>;
+      </div>, document.body)}
+    </span>;
 };
 const ValueCell = ({
   value,
