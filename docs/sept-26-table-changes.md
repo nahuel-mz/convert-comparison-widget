@@ -1,16 +1,16 @@
 # Sept 26 competitor table — what changed
 
 Generated from *Convert Comparison Tables Latest - All competitors Sept 26.csv*
-against the table as it stood on `main`. Commit `fe55cc2`.
+against the table as it stood on `main`.
 
 ## Structural
 
 | Change | Detail |
 |---|---|
 | Removed | **AB Tasty** — acquired by VWO, dropped from the sheet |
+| Collapsed | **Optimizely** — Essential / Enhanced / Advanced / Ultimate → a single **One Plan** column. Victoria: *"they have changed their product. We can't break it down any further than this."* |
 | Rebuilt | **Intelligems** — Core / Plus / Blue → **Build your own** / **Unlimited** |
 | Renamed | **Amplitude** — Starter → **Free** |
-| Untouched | **Optimizely** — the sheet has one column, the table has four tiers. Pending Victoria. |
 
 ## New rows
 
@@ -19,7 +19,7 @@ against the table as it stood on `main`. Commit `fe55cc2`.
 _Model Context Protocol server so AI assistants like Claude, Cursor and VS Code can securely connect to and query the product's data_
 
 - **Convert** — yes on Growth, Pro and Enterprise
-- Also yes: VWO Enterprise, Kameleoon PBX Starter, Kameleoon Enterprise, Intelligems Build your own, Intelligems Unlimited, Amplitude Free, Amplitude Plus, Amplitude Growth, Amplitude Enterprise, Zoho PageSense Forever Free, Zoho PageSense Professional, Zoho PageSense Enterprise, Zoho PageSense Agency
+- Also yes: Optimizely One Plan, VWO Enterprise, Kameleoon PBX Starter, Kameleoon Enterprise, Intelligems Build your own, Intelligems Unlimited, Amplitude Free, Amplitude Plus, Amplitude Growth, Amplitude Enterprise, Zoho PageSense Forever Free, Zoho PageSense Professional, Zoho PageSense Enterprise, Zoho PageSense Agency
 
 ### Shopify price testing
 
@@ -33,7 +33,35 @@ _Native, checkout-safe A/B or multivariate testing of product and checkout prici
 _Built-in AI that generates test variations, copy or insights inside the product's editor_
 
 - **Convert** — yes on Growth, Pro and Enterprise
-- Also yes: VWO Growth, VWO Pro, VWO Enterprise, Kameleoon PBX Starter, Kameleoon Enterprise, Intelligems Build your own, Intelligems Unlimited, Amplitude Free, Amplitude Plus, Amplitude Growth, Amplitude Enterprise, Visually Launch, Visually Pro, Visually Scale, Zoho PageSense Enterprise, Zoho PageSense Agency
+- Also yes: Optimizely One Plan, VWO Growth, VWO Pro, VWO Enterprise, Kameleoon PBX Starter, Kameleoon Enterprise, Intelligems Build your own, Intelligems Unlimited, Amplitude Free, Amplitude Plus, Amplitude Growth, Amplitude Enterprise, Visually Launch, Visually Pro, Visually Scale, Zoho PageSense Enterprise, Zoho PageSense Agency
+
+## Optimizely — four tiers collapsed to one
+
+The sheet carries a single Optimizely column. Where all four live tiers already agreed,
+the richer of the two values was kept as everywhere else. The rows below are the ones where
+the tiers **disagreed**, so there was no single live value to keep and the sheet decides.
+
+| Attribute | Essential / Enhanced / Advanced / Ultimate | One Plan |
+|---|---|---|
+| Number of Tested Users per month | 250k - 2.5m / 500k - Unlimited / 500k - Unlimited / 1m - Unlimited | MAU-based (custom quote) |
+| Custom domains (CNAME) | No / Yes / Yes / Yes | Yes |
+| Number of Active Projects | 1 / Yes / Yes / Yes | Limit not specified |
+| Unlimited Collaborators | Not available / 10 / 20 / 40 | Yes |
+| Deploys | No / No / No / Yes | No |
+| Multivariate Testing | No / No / Yes / Yes | Yes |
+| Multi-armed bandit | No / Yes / Yes / Yes | Yes |
+| Unique JS/CSS per Experiment | No / Yes / Yes / Yes | Yes |
+| Time of Day Targeting | No / Yes / Yes / Yes | Yes |
+| Geo Targeting | No / Yes / Yes / Yes | Yes |
+| Advanced / Custom Targeting | No / Yes / Yes / Yes | Yes |
+| Personalize experiences with behavior based targeting | No / Yes / Yes / Yes | Yes |
+| Cross-domain Testing and Tracking | No / No / Yes / Yes | Yes |
+| Raw test data export | No / Yes / Yes / Yes | Yes (enterprise) |
+| SRM Checks | No / Yes / Yes / Yes | Yes |
+| Knowledge base | No / No / Yes / Yes | No |
+| Add observations | No / No / Yes / Yes | No |
+| Change History | 30 days / Unlimited / Unlimited / Unlimited | Yes |
+| Single Sign On (SSO) | No / Yes / Yes / Yes | Yes (enterprise) |
 
 ## Intelligems — new columns
 
