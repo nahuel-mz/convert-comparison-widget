@@ -1,9 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap');
 @import 'tailwindcss';
 
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
+
+/* Convert web tokens — mirrored from convert-lps `_shared/tokens.css` (readability pass, 2026-09-08).
+   Same names as the web so values can be checked against it one to one. No grey: neutrals are the
+   navy ink scale, surfaces are cream. */
+@theme {
+  --color-blue-50: #EEF4FF;
+  --color-blue-100: #DBEAFE;
+  --color-blue-200: #E0E7FF;
+  --color-blue-600: #0066FF;
+  --color-blue-700: #0052CC;
+  --color-violet-100: #F5F0FF;
+  --color-violet-200: #C4B5FD;
+  --color-violet-700: #6D28D9;
+  --color-orange-50: #FFF4ED;
+  --color-orange-200: #FED7AA;
+  --color-orange-700: #C2410C;
+  --color-ink-900: #2A3442;  /* primary text        12.6:1 on white */
+  --color-ink-800: #3C4659;  /* nav, strong UI       9.5:1 */
+  --color-ink-700: #586478;  /* secondary text       6.0:1 */
+  --color-ink-600: #647084;  /* muted labels         5.0:1 — lowest step allowed to carry text */
+  --color-ink-500: #8792A7;  /* decorative / disabled only, 3.1:1 — never text */
+  --color-ink-400: #D0D7E1;  /* default border */
+  --color-ink-300: #E7EBF1;  /* subtle border */
+  --color-ink-200: #F4F6F9;  /* subtle navy tint */
+  --color-cream: #FAFAF7;
+  --color-cream-hover: #F5F4EE;
+  --color-border-cream: #E7E3D9;
+}
 
 body {
   margin: 0;
@@ -87,10 +115,10 @@ body {
   --font-heading: Geist;
   --card: #ffffff;
   --ring: #0066FF;
-  --input: #CFD9E6;
-  --muted: #F5F7FC;
-  --accent: #E2F4FF;
-  --border: #CFD9E6;
+  --input: #D0D7E1;
+  --muted: #FAFAF7;
+  --accent: #EEF4FF;
+  --border: #D0D7E1;
   --chart-1: #0066FF;
   --chart-2: #2341E0;
   --chart-3: #22C55E;
@@ -99,21 +127,21 @@ body {
   --popover: #ffffff;
   --primary: #0066FF;
   --sidebar: hsl(0 0% 100%);
-  --secondary: #EBEFF9;
+  --secondary: #F5F4EE;
   --background: #ffffff;
-  --foreground: #2A3341;
+  --foreground: #2A3442;
   --destructive: #EF4444;
   --sidebar-ring: hsl(222.2 47.4% 11.2%);
   --sidebar-accent: hsl(210 40% 96.1%);
   --sidebar-border: hsl(214.3 31.8% 91.4%);
-  --card-foreground: #2A3341;
+  --card-foreground: #2A3442;
   --sidebar-primary: hsl(222.2 47.4% 11.2%);
-  --muted-foreground: #4C5B70;
-  --accent-foreground: #2A3341;
-  --popover-foreground: #2A3341;
+  --muted-foreground: #586478;
+  --accent-foreground: #2A3442;
+  --popover-foreground: #2A3442;
   --primary-foreground: #ffffff;
   --sidebar-foreground: hsl(0 0% 10%);
-  --secondary-foreground: #2A3341;
+  --secondary-foreground: #2A3442;
   --destructive-foreground: #ffffff;
   --sidebar-accent-foreground: hsl(222.2 47.4% 11.2%);
   --sidebar-primary-foreground: hsl(210 40% 98%);
@@ -160,7 +188,9 @@ body {
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-body);
+    font-family: var(--font-body), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   h1,
   h2,
@@ -204,4 +234,53 @@ img.broken-image-fallback {
   to {
     opacity: 1;
   }
+}
+/* ── Buttons — verbatim from convert-lps `_shared/components/buttons.css` ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(180deg, #2B84FF 0%, #0066FF 58%, #005FEB 100%);
+  color: #fff;
+  border: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.22), inset 0 0 0 1px rgba(0,82,204,0.45);
+  border-radius: 12px;
+  padding: 14px 28px;
+  font: 500 15px/1 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background 200ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 200ms cubic-bezier(0.23, 1, 0.32, 1), transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(180deg, #0F72FF 0%, #0052CC 100%);
+  box-shadow: 0 8px 24px rgba(0,102,255,0.12), inset 0 1px 0 rgba(255,255,255,0.16), inset 0 0 0 1px rgba(0,72,180,0.55);
+}
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #fff;
+  color: #1a1a2e;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 14px 28px;
+  font: 500 15px/1 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: border-color 200ms cubic-bezier(0.23, 1, 0.32, 1), transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.btn-secondary:hover:not(:disabled) { border-color: rgba(0,0,0,0.25); }
+/* Toolbar size — same component, tighter padding for the table's top bar. */
+.btn-sm { padding: 10px 18px; font-size: 14px; }
+.btn-primary:disabled,
+.btn-secondary:disabled { cursor: not-allowed; opacity: 0.6; }
+.btn-primary:active:not(:disabled),
+.btn-secondary:active:not(:disabled) { transform: scale(0.97); }
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary:active:not(:disabled),
+  .btn-secondary:active:not(:disabled) { transform: none; opacity: 0.85; }
 }
