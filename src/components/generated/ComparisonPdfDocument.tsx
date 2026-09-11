@@ -1,4 +1,27 @@
-import { Document, Page, Text, View, StyleSheet, Image } from '@react-pdf/renderer'
+import { Document, Page, Text, View, StyleSheet, Image, Font, Svg, Path } from '@react-pdf/renderer'
+
+// Geist, the web's typeface. Google Fonts CSS can't reach inside a PDF, so the widget
+// ships subset TTFs in public/fonts (Latin + punctuation — covers every character in
+// the comparison data). TrueType outlines because react-pdf's CFF/OTF support is unreliable.
+Font.register({
+  family: 'Geist',
+  fonts: [
+    { src: '/fonts/Geist-Regular.ttf', fontWeight: 400 },
+    { src: '/fonts/Geist-Medium.ttf', fontWeight: 500 },
+    { src: '/fonts/Geist-SemiBold.ttf', fontWeight: 600 },
+    { src: '/fonts/Geist-Italic.ttf', fontWeight: 400, fontStyle: 'italic' },
+  ],
+})
+
+// Convert web tokens (convert-lps `_shared/tokens.css`). No grey — navy ink scale + cream.
+const INK_900 = '#2A3442'
+const INK_700 = '#586478'
+const INK_600 = '#647084'
+const INK_400 = '#D0D7E1'
+const INK_300 = '#E7EBF1'
+const BLUE_600 = '#0066FF'
+const BLUE_50 = '#EEF4FF'
+const CREAM = '#FAFAF7'
 
 type ValueType = string | boolean | 'Unknown' | 'Gated' | 'Not disclosed' | 'Not available'
 
@@ -28,18 +51,18 @@ export interface ComparisonPdfDocumentProps {
   comparingText: string
 }
 
-function renderValue(val: ValueType | undefined): { text: string; variant: 'normal' | 'muted' | 'true' } {
+function renderValue(val: ValueType | undefined): { text: string; variant: 'normal' | 'muted' | 'check' | 'cross' } {
   if (val === undefined || val === null) return { text: '—', variant: 'muted' }
   if (typeof val === 'string') {
     // The PDF is static and can't show tooltips — strip any `HOVER:` annotation
     // and coerce the literal 'true'/'false' primaries to checks/crosses.
     const hoverIndex = val.search(/\s*(?:\(?ON-)?HOVER:/)
     if (hoverIndex !== -1) val = val.slice(0, hoverIndex).trim().replace(/\($/, '').trim() as ValueType
-    if (val === 'true') return { text: '✓', variant: 'true' }
-    if (val === 'false') return { text: '✗', variant: 'muted' }
+    if (val === 'true') return { text: 'Yes', variant: 'check' }
+    if (val === 'false') return { text: 'No', variant: 'cross' }
   }
-  if (val === true) return { text: '✓', variant: 'true' }
-  if (val === false) return { text: '✗', variant: 'muted' }
+  if (val === true) return { text: 'Yes', variant: 'check' }
+  if (val === false) return { text: 'No', variant: 'cross' }
   if (
     val === 'Unknown' ||
     val === 'Not disclosed' ||
@@ -51,10 +74,23 @@ function renderValue(val: ValueType | undefined): { text: string; variant: 'norm
   return { text: String(val), variant: 'normal' }
 }
 
+const CheckIcon = () => (
+  <Svg width={9} height={9} viewBox="0 0 14 14">
+    <Path d="M2.5 7L5.5 10L11.5 4" stroke={BLUE_600} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" fill="none" />
+  </Svg>
+)
+const CrossIcon = () => (
+  <Svg width={8} height={8} viewBox="0 0 12 12">
+    <Path d="M2 2L10 10M10 2L2 10" stroke={INK_400} strokeWidth={1.75} strokeLinecap="round" fill="none" />
+  </Svg>
+)
+
+// Type: the web's 12px reading floor is 9pt in print, so nothing here is set below 9.
 const s = StyleSheet.create({
   page: {
-    fontFamily: 'Helvetica',
-    fontSize: 8,
+    fontFamily: 'Geist',
+    fontSize: 9,
+    color: INK_900,
     paddingHorizontal: 30,
     paddingTop: 20,
     paddingBottom: 20,
@@ -71,59 +107,62 @@ const s = StyleSheet.create({
     width: 110,
   },
   dimensionTitle: {
-    fontFamily: 'Helvetica-Bold',
-    fontSize: 11,
-    color: '#2A3441',
+    fontWeight: 600,
+    fontSize: 14,
+    color: INK_900,
+    letterSpacing: -0.2,
   },
   dateText: {
-    fontSize: 7,
-    color: '#6B7280',
+    fontSize: 9,
+    color: INK_600,
   },
   divider: {
     height: 1.5,
-    backgroundColor: '#2A3441',
-    marginBottom: 4,
+    backgroundColor: INK_900,
+    marginBottom: 5,
   },
   comparing: {
-    fontSize: 6.5,
-    color: '#6B7280',
-    marginBottom: 8,
+    fontSize: 9,
+    color: INK_700,
+    lineHeight: 1.4,
+    marginBottom: 10,
   },
   card: {
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: INK_300,
     borderStyle: 'solid',
-    borderRadius: 3,
-    marginBottom: 6,
+    borderRadius: 4,
+    marginBottom: 8,
   },
   cardHeader: {
-    backgroundColor: '#2A3441',
+    backgroundColor: INK_900,
     padding: 5,
     paddingLeft: 8,
-    borderTopLeftRadius: 2,
-    borderTopRightRadius: 2,
+    borderTopLeftRadius: 3,
+    borderTopRightRadius: 3,
   },
   cardHeaderText: {
-    fontFamily: 'Helvetica-Bold',
-    fontSize: 7.5,
+    fontWeight: 600,
+    fontSize: 9,
+    letterSpacing: 0.6,
     color: '#FFFFFF',
   },
   row: {
     flexDirection: 'row',
     borderTopWidth: 1,
-    borderTopColor: '#E2E8F0',
+    borderTopColor: INK_300,
     borderTopStyle: 'solid',
-    minHeight: 18,
+    minHeight: 20,
   },
   rowConvert: {
-    backgroundColor: '#EBF3FF',
+    backgroundColor: BLUE_50,
   },
   rowAlt: {
-    backgroundColor: '#F9FAFB',
+    backgroundColor: CREAM,
   },
   rowSeparator: {
     borderTopWidth: 1,
-    borderTopColor: '#CBD5E1',
+    borderTopColor: INK_400,
     borderTopStyle: 'solid',
   },
   cellCompetitor: {
@@ -132,7 +171,7 @@ const s = StyleSheet.create({
     paddingLeft: 8,
     paddingTop: 5,
     borderRightWidth: 1,
-    borderRightColor: '#E2E8F0',
+    borderRightColor: INK_300,
     borderRightStyle: 'solid',
   },
   cellPlan: {
@@ -140,7 +179,7 @@ const s = StyleSheet.create({
     padding: 4,
     paddingTop: 5,
     borderRightWidth: 1,
-    borderRightColor: '#E2E8F0',
+    borderRightColor: INK_300,
     borderRightStyle: 'solid',
   },
   cellValue: {
@@ -150,30 +189,30 @@ const s = StyleSheet.create({
     paddingRight: 8,
   },
   textConvert: {
-    fontFamily: 'Helvetica-Bold',
-    fontSize: 7.5,
-    color: '#0066FF',
+    fontWeight: 600,
+    fontSize: 9,
+    color: BLUE_600,
   },
   textCompetitor: {
-    fontSize: 7.5,
-    color: '#374151',
-    fontFamily: 'Helvetica-Bold',
+    fontSize: 9,
+    color: INK_900,
+    fontWeight: 600,
   },
   textPlan: {
-    fontSize: 7.5,
-    color: '#374151',
+    fontSize: 9,
+    color: INK_700,
   },
   textValue: {
-    fontSize: 7.5,
-    color: '#2A3441',
+    fontSize: 9,
+    color: INK_900,
     lineHeight: 1.4,
   },
   textMuted: {
-    color: '#9CA3AF',
+    color: INK_600,
+    fontStyle: 'italic',
   },
-  textTrue: {
-    color: '#16A34A',
-    fontFamily: 'Helvetica-Bold',
+  iconCell: {
+    paddingTop: 2,
   },
   footer: {
     marginTop: 6,
@@ -181,8 +220,8 @@ const s = StyleSheet.create({
     justifyContent: 'space-between',
   },
   footerText: {
-    fontSize: 6,
-    color: '#9CA3AF',
+    fontSize: 9,
+    color: INK_600,
   },
 })
 
@@ -224,6 +263,7 @@ export function ComparisonPdfDocument({
                 return (
                   <View
                     key={rowIdx}
+                    wrap={false}
                     style={[s.row, rowStyle, needsSeparator && s.rowSeparator]}
                   >
                     <View style={s.cellCompetitor}>
@@ -239,15 +279,11 @@ export function ComparisonPdfDocument({
                     <View style={s.cellValue}>
                       {(() => {
                         const { text, variant } = renderValue(row.value)
+                        if (variant === 'check' || variant === 'cross') {
+                          return <View style={s.iconCell} wrap={false}>{variant === 'check' ? <CheckIcon /> : <CrossIcon />}</View>
+                        }
                         return (
-                          <Text
-                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                            style={[
-                              s.textValue,
-                              variant === 'muted' && s.textMuted,
-                              variant === 'true' && s.textTrue,
-                            ] as any}
-                          >
+                          <Text style={variant === 'muted' ? [s.textValue, s.textMuted] : s.textValue}>
                             {text}
                           </Text>
                         )
