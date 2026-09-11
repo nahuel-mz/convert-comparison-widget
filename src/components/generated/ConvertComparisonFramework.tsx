@@ -67,7 +67,7 @@ const COMPETITORS: Competitor[] = [{
   name: 'Optimizely',
   plans: [{
     id: 'opt-single',
-    name: 'One Plan'
+    name: ''
   }]
 }, {
   id: 'vwo',
@@ -3908,7 +3908,7 @@ const MobileComparisonView = ({
                 </div>
               )}
             </>
-          ) : activeCompetitor?.plans.length === 1 ? (
+          ) : activeCompetitor?.plans.length === 1 && activeCompetitor.plans[0].name ? (
             <div className="px-1.5 py-1.5 rounded border border-border bg-muted text-[13px] font-semibold text-muted-foreground text-center">
               {activeCompetitor.plans[0].name}
             </div>
@@ -3988,7 +3988,10 @@ const buildComparingText = (selectedCompetitorIds: string[]): string => {
   const convertPart = `Convert (${CONVERT_PLANS.map(p => p.name).join(', ')})`
   const competitorParts = COMPETITORS
     .filter(c => selectedCompetitorIds.includes(c.id))
-    .map(c => `${c.name} (${c.plans.map(p => p.name).join(', ')})`)
+    .map(c => {
+      const planNames = c.plans.map(p => p.name).filter(Boolean)
+      return planNames.length ? `${c.name} (${planNames.join(', ')})` : c.name
+    })
     .join(' | ')
   return competitorParts ? `${convertPart} vs. ${competitorParts}` : convertPart
 }
@@ -4602,7 +4605,7 @@ export const ConvertComparisonFramework = () => {
                               color: 'var(--color-ink-900)',
                               letterSpacing: '-0.3px',
                               fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
-                            }}>{plan.name}</div>
+                            }}>{plan.name || '\u00A0'}</div>
                                   </th>);
                         })}
                             </tr>
