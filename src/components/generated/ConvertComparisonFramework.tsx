@@ -3561,7 +3561,7 @@ const ValueCell = ({
         {parsedValue.tooltip && <InlineTooltip content={parsedValue.tooltip} />}
       </div>;
   }
-  const isNeutral = ['Not disclosed', 'Not available'].includes(visibleValue as string);
+  const isNeutral = ['Not disclosed', 'Not available', 'Not specified', 'Not publicly listed'].includes(visibleValue as string);
   return <div className="inline-flex items-center gap-1.5 flex-wrap">
       <span className={cn('text-[14px] leading-snug', isNeutral ? 'text-ink-600 italic' : 'text-foreground')}>{visibleValue}</span>
       {parsedValue.tooltip && <InlineTooltip content={parsedValue.tooltip} />}
@@ -3610,7 +3610,7 @@ const MobileValue = ({
         {parsedValue.tooltip && <InlineTooltip content={parsedValue.tooltip} />}
       </div>;
   }
-  const isNeutral = ['Not disclosed', 'Not available'].includes(visibleValue as string);
+  const isNeutral = ['Not disclosed', 'Not available', 'Not specified', 'Not publicly listed'].includes(visibleValue as string);
   return <div className="inline-flex items-start gap-1 flex-wrap">
       <span className={cn('text-[13px] leading-snug text-left', isNeutral ? 'text-ink-600 italic' : 'text-foreground')}>{visibleValue}</span>
       {parsedValue.tooltip && <InlineTooltip content={parsedValue.tooltip} />}
