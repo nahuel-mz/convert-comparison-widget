@@ -187,9 +187,9 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
   attribute: 'Number of Tested Users per month',
   dimension: 'pricing',
   values: {
-    'convert-growth': '100,000 - 750,000k MTUS / month',
-    'convert-pro': '100,000 - 2,000,000k MTUS / month',
-    'convert-enterprise': '1,000,000 - 5,000,000k + MTUS / month',
+    'convert-growth': '100,000 - 750,000 MTUs / month',
+    'convert-pro': '100,000 - 2,000,000 MTUs / month',
+    'convert-enterprise': '1,000,000 - 5,000,000+ MTUs / month',
     'opt-single': 'MAU-based (custom quote)',
     'vwo-growth': 'Up to 250K MTU (max)',
     'vwo-pro': 'Up to 1M MTU (max)',
