@@ -65,6 +65,8 @@ function renderValue(val: ValueType | undefined): { text: string; variant: 'norm
   if (val === false) return { text: 'No', variant: 'cross' }
   if (
     val === 'Unknown' ||
+    val === 'Not specified' ||
+    val === 'Not publicly listed' ||
     val === 'Not disclosed' ||
     val === 'Not available' ||
     val === 'Gated'
