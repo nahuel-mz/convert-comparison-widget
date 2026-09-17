@@ -17,6 +17,7 @@ interface PlanData {
 interface Competitor {
   id: string;
   name: string;
+  formerly?: string; // previous brand, shown as "(formerly X)" under the name
   plans: PlanData[];
 }
 interface ComparisonDataPoint {
@@ -71,7 +72,8 @@ const COMPETITORS: Competitor[] = [{
   }]
 }, {
   id: 'vwo',
-  name: 'VWO',
+  name: 'Wingify',
+  formerly: 'VWO',
   plans: [{
     id: 'vwo-growth',
     name: 'Growth'
@@ -181,6 +183,23 @@ const CONVERT_PLANS: PlanData[] = [{
   name: 'Enterprise',
   isConvert: true
 }];
+const CompetitorName = ({
+  comp,
+  noteSize
+}: {
+  comp: Competitor;
+  noteSize: string;
+}) => <>
+    {comp.name}
+    {comp.formerly && <span style={{
+    display: 'block',
+    fontSize: noteSize,
+    fontWeight: 400,
+    color: 'var(--color-ink-600)',
+    letterSpacing: 0,
+    textTransform: 'none'
+  }}>(formerly {comp.formerly})</span>}
+  </>;
 const COMPARISON_DATA: ComparisonDataPoint[] = [
 // ─── PRICING ────────────────────────────────────────────────────────────────
 {
@@ -191,9 +210,9 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'convert-pro': '100,000 - 2,000,000 MTUs / month',
     'convert-enterprise': '1,000,000 - 5,000,000+ MTUs / month',
     'opt-single': 'MAU-based (custom quote)',
-    'vwo-growth': 'Up to 250K MTU (max)',
-    'vwo-pro': 'Up to 1M MTU (max)',
-    'vwo-enterprise': '1M+ MTU (custom)',
+    'vwo-growth': 'Custom (MAU-based)',
+    'vwo-pro': 'Custom (MAU-based)',
+    'vwo-enterprise': 'Custom (MAU-based)',
     'kam-standard': '50,000 MTUs/month',
     'kam-enterprise': 'Unlimited MTUs',
     'dy-single': 'Not stated',
@@ -222,9 +241,9 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'convert-pro': '$599 - $4982 per month',
     'convert-enterprise': 'Price on request',
     'opt-single': 'Contact Sales',
-    'vwo-growth': 'Not publicly available / Contact Sales',
-    'vwo-pro': 'Not publicly available / Contact Sales',
-    'vwo-enterprise': 'Not publicly available / Contact Sales',
+    'vwo-growth': 'Gated pricing',
+    'vwo-pro': 'Gated pricing',
+    'vwo-enterprise': 'Gated pricing',
     'kam-standard': 'From $495/month',
     'kam-enterprise': 'Gated pricing',
     'dy-single': 'Gated pricing',
@@ -254,9 +273,9 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'convert-pro': '$420 - $3488 per month',
     'convert-enterprise': 'Price on request',
     'opt-single': 'Contact Sales',
-    'vwo-growth': 'Not publicly available / Contact Sales',
-    'vwo-pro': 'Not publicly available / Contact Sales',
-    'vwo-enterprise': 'Not publicly available / Contact Sales',
+    'vwo-growth': 'Gated pricing',
+    'vwo-pro': 'Gated pricing',
+    'vwo-enterprise': 'Gated pricing',
     'kam-standard': 'Not publicly listed',
     'kam-enterprise': 'Gated pricing',
     'dy-single': 'Gated pricing',
@@ -286,9 +305,9 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'convert-pro': '$5040 - $41856 per year',
     'convert-enterprise': 'Price on request',
     'opt-single': 'Contact Sales',
-    'vwo-growth': 'Not publicly available / Contact Sales',
-    'vwo-pro': 'Not publicly available / Contact Sales',
-    'vwo-enterprise': 'Not publicly available / Contact Sales',
+    'vwo-growth': 'Gated pricing',
+    'vwo-pro': 'Gated pricing',
+    'vwo-enterprise': 'Gated pricing',
     'kam-standard': 'Not publicly listed',
     'kam-enterprise': 'Gated pricing',
     'dy-single': 'Gated pricing',
@@ -412,9 +431,9 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'convert-pro': false,
     'convert-enterprise': false,
     'opt-single': 'Not specified',
-    'vwo-growth': false,
-    'vwo-pro': false,
-    'vwo-enterprise': false,
+    'vwo-growth': true,
+    'vwo-pro': true,
+    'vwo-enterprise': true,
     'kam-standard': false,
     'kam-enterprise': false,
     'dy-single': 'Not specified',
@@ -445,9 +464,9 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'convert-pro': 'Unlimited',
     'convert-enterprise': 'Unlimited',
     'opt-single': 'Not specified',
-    'vwo-growth': 'Unlimited',
-    'vwo-pro': 'Unlimited',
-    'vwo-enterprise': 'Unlimited',
+    'vwo-growth': '13 months',
+    'vwo-pro': '13 months',
+    'vwo-enterprise': '13 months',
     'kam-standard': '2 years',
     'kam-enterprise': '2 years',
     'dy-single': 'Not specified',
@@ -756,9 +775,9 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'convert-pro': '100',
     'convert-enterprise': '300',
     'opt-single': false,
-    'vwo-growth': 'Add-on required',
-    'vwo-pro': 'Add-on required',
-    'vwo-enterprise': 'Add-on required',
+    'vwo-growth': true,
+    'vwo-pro': true,
+    'vwo-enterprise': true,
     'kam-standard': false,
     'kam-enterprise': true,
     'dy-single': 'Unknown',
@@ -1134,9 +1153,9 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'convert-pro': true,
     'convert-enterprise': true,
     'opt-single': true,
-    'vwo-growth': 'Unknown',
-    'vwo-pro': 'Unknown',
-    'vwo-enterprise': 'Unknown',
+    'vwo-growth': false,
+    'vwo-pro': false,
+    'vwo-enterprise': true,
     'kam-standard': false,
     'kam-enterprise': true,
     'dy-single': true,
@@ -1382,7 +1401,7 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'convert-pro': true,
     'convert-enterprise': true,
     'opt-single': true,
-    'vwo-growth': false,
+    'vwo-growth': '0',
     'vwo-pro': '5',
     'vwo-enterprise': '20',
     'kam-standard': true,
@@ -1665,9 +1684,9 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'convert-pro': true,
     'convert-enterprise': true,
     'opt-single': 'Yes — both',
-    'vwo-growth': 'Bayesian only',
-    'vwo-pro': 'Bayesian only',
-    'vwo-enterprise': 'Bayesian only',
+    'vwo-growth': true,
+    'vwo-pro': true,
+    'vwo-enterprise': true,
     'kam-standard': false,
     'kam-enterprise': true,
     'dy-single': true,
@@ -2579,9 +2598,9 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'convert-pro': true,
     'convert-enterprise': true,
     'opt-single': true,
-    'vwo-growth': 'Unknown',
-    'vwo-pro': 'Unknown',
-    'vwo-enterprise': 'Unknown',
+    'vwo-growth': false,
+    'vwo-pro': true,
+    'vwo-enterprise': true,
     'kam-standard': true,
     'kam-enterprise': true,
     'dy-single': true,
@@ -2799,8 +2818,8 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'convert-pro': true,
     'convert-enterprise': true,
     'opt-single': true,
-    'vwo-growth': false,
-    'vwo-pro': false,
+    'vwo-growth': true,
+    'vwo-pro': true,
     'vwo-enterprise': true,
     'kam-standard': true,
     'kam-enterprise': true,
@@ -2831,9 +2850,9 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'convert-pro': true,
     'convert-enterprise': true,
     'opt-single': false,
-    'vwo-growth': true,
-    'vwo-pro': true,
-    'vwo-enterprise': true,
+    'vwo-growth': false,
+    'vwo-pro': false,
+    'vwo-enterprise': false,
     'kam-standard': false,
     'kam-enterprise': false,
     'dy-single': 'Unknown',
@@ -3678,7 +3697,7 @@ const MobileFilterDrawer = ({
               </div>
               <div className="space-y-2">
                 {COMPETITORS.map(comp => <button key={comp.id} onClick={() => toggleCompetitor(comp.id)} className={cn('w-full flex items-center justify-between p-3 rounded-lg text-left transition-all text-sm border-2', selectedCompetitors.includes(comp.id) ? SELECTED_OPTION_CLASSES : 'bg-card text-foreground hover:bg-accent border-border')}>
-                    <span className="font-semibold">{comp.name}</span>
+                    <span className="font-semibold"><CompetitorName comp={comp} noteSize="12px" /></span>
                     {selectedCompetitors.includes(comp.id) && <Check className="w-4 h-4 text-primary" />}
                   </button>)}
               </div>
@@ -3723,7 +3742,7 @@ const MobileCompetitorPicker = ({
   onSelect
 }: MobileCompetitorPickerProps) => {
   const [query, setQuery] = useState('');
-  const filtered = availableCompetitors.filter(c => c.name.toLowerCase().includes(query.toLowerCase()));
+  const filtered = availableCompetitors.filter(c => `${c.name} ${c.formerly ?? ''}`.toLowerCase().includes(query.toLowerCase()));
   return <AnimatePresence>
       {isOpen && <div className="fixed inset-0 z-[400] flex flex-col justify-end">
           <motion.div initial={{
@@ -3767,6 +3786,7 @@ const MobileCompetitorPicker = ({
                   <div>
                     <span className="font-semibold">{comp.name}</span>
                     <span className="text-[12px] text-ink-600 ml-2">{comp.plans.length} plan{comp.plans.length !== 1 ? 's' : ''}</span>
+                    {comp.formerly && <span className="block text-[12px] text-ink-600">(formerly {comp.formerly})</span>}
                   </div>
                   {activeCompetitorId === comp.id && <Check className="w-4 h-4 text-primary flex-shrink-0" />}
                 </button>)}
@@ -3882,7 +3902,7 @@ const MobileComparisonView = ({
             onClick={() => { setPickerOpen(true); setConvertDropdownOpen(false); setCompDropdownOpen(false); }}
             className="flex items-center gap-0.5 text-left min-w-0"
           >
-            <span className="text-[12px] font-semibold uppercase tracking-wider text-foreground truncate">{activeCompetitor?.name ?? '—'}</span>
+            <span className="text-[12px] font-semibold uppercase tracking-wider text-foreground truncate">{activeCompetitor ? <CompetitorName comp={activeCompetitor} noteSize="11px" /> : '—'}</span>
             {availableCompetitors.length > 1 && <CaretDown className="w-2.5 h-2.5 text-muted-foreground flex-shrink-0" />}
           </button>
           {activeCompetitor && activeCompetitor.plans.length > 1 ? (
@@ -3990,7 +4010,8 @@ const buildComparingText = (selectedCompetitorIds: string[]): string => {
     .filter(c => selectedCompetitorIds.includes(c.id))
     .map(c => {
       const planNames = c.plans.map(p => p.name).filter(Boolean)
-      return planNames.length ? `${c.name} (${planNames.join(', ')})` : c.name
+      const name = c.formerly ? `${c.name}, formerly ${c.formerly}` : c.name
+      return planNames.length ? `${name} (${planNames.join(', ')})` : name
     })
     .join(' | ')
   return competitorParts ? `${convertPart} vs. ${competitorParts}` : convertPart
@@ -4023,10 +4044,10 @@ export const ConvertComparisonFramework = () => {
     const today = new Date().toISOString().split('T')[0]
 
     const competitorGroups = [
-      { name: 'Convert', plans: CONVERT_PLANS as { id: string; name: string }[], isConvert: true },
+      { name: 'Convert', formerly: undefined as string | undefined, plans: CONVERT_PLANS as { id: string; name: string }[], isConvert: true },
       ...COMPETITORS
         .filter(c => selectedCompetitors.includes(c.id))
-        .map(c => ({ name: c.name, plans: c.plans as { id: string; name: string }[], isConvert: false })),
+        .map(c => ({ name: c.name, formerly: c.formerly, plans: c.plans as { id: string; name: string }[], isConvert: false })),
     ]
 
     const pages = DIMENSIONS
@@ -4040,6 +4061,7 @@ export const ConvertComparisonFramework = () => {
             rows: competitorGroups.flatMap((group, groupIdx) =>
               group.plans.map((plan, planIdx) => ({
                 competitorName: group.name,
+                competitorFormerly: group.formerly,
                 planName: plan.name,
                 value: item.values[plan.id],
                 isConvert: group.isConvert,
@@ -4202,7 +4224,7 @@ export const ConvertComparisonFramework = () => {
                       el.style.boxShadow = '';
                     }}>
                             {selectedCompetitors.includes(comp.id) && <Check className="w-4 h-4" style={{ color: 'var(--color-blue-600)', position: 'absolute', top: '10px', left: '50%', transform: 'translateX(-50%)' }} />}
-                            <span style={{ textAlign: 'center' }}>{comp.name}</span>
+                            <span style={{ textAlign: 'center' }}><CompetitorName comp={comp} noteSize="12px" /></span>
                           </button>)}
                       </div>
                     </div>
@@ -4427,7 +4449,7 @@ export const ConvertComparisonFramework = () => {
                                     <span className="font-semibold" style={{
                             color: selectedCompetitors.includes(comp.id) ? 'var(--color-blue-700)' : 'var(--color-ink-900)',
                             fontSize: '14px'
-                          }}>{comp.name}</span>
+                          }}><CompetitorName comp={comp} noteSize="12px" /></span>
                                     {selectedCompetitors.includes(comp.id) && <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6L5 9L10 3" stroke="var(--color-blue-600)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>}
                                   </button>)}
                               </div>
@@ -4562,6 +4584,7 @@ export const ConvertComparisonFramework = () => {
                           left: `${ATTR_COL_W + idx * PLAN_COL_W}px`,
                           backgroundClip: 'padding-box',
                           backgroundColor: 'var(--color-blue-50)',
+                          verticalAlign: 'bottom',
                           isolation: 'isolate',
                           boxShadow: idx === 2 ? '2px 0 4px rgba(0,0,0,0.06)' : undefined
                         }}>
@@ -4589,7 +4612,8 @@ export const ConvertComparisonFramework = () => {
                             minWidth: PLAN_COL_W,
                             maxWidth: PLAN_COL_W,
                             backgroundClip: 'padding-box',
-                            backgroundColor: '#ffffff'
+                            backgroundColor: '#ffffff',
+                            verticalAlign: 'bottom'
                           }}>
                                     <div style={{
                               fontSize: '12px',
@@ -4598,7 +4622,7 @@ export const ConvertComparisonFramework = () => {
                               letterSpacing: '0.02em',
                               marginBottom: '2px',
                               fontFamily: 'Geist, ui-sans-serif, system-ui, sans-serif'
-                            }}>{comp.name}</div>
+                            }}><CompetitorName comp={comp} noteSize="11px" /></div>
                                     <div style={{
                               fontSize: '16px',
                               fontWeight: 500,
