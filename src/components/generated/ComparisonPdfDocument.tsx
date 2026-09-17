@@ -27,6 +27,7 @@ type ValueType = string | boolean | 'Unknown' | 'Gated' | 'Not disclosed' | 'Not
 
 export interface PlanRow {
   competitorName: string
+  competitorFormerly?: string
   planName: string
   value: ValueType | undefined
   isConvert: boolean
@@ -200,6 +201,10 @@ const s = StyleSheet.create({
     color: INK_900,
     fontWeight: 600,
   },
+  textFormerly: {
+    fontSize: 7,
+    color: INK_600,
+  },
   textPlan: {
     fontSize: 9,
     color: INK_700,
@@ -273,6 +278,9 @@ export function ComparisonPdfDocument({
                         <Text style={row.isConvert ? s.textConvert : s.textCompetitor}>
                           {row.competitorName}
                         </Text>
+                      )}
+                      {row.isFirstInGroup && row.competitorFormerly && (
+                        <Text style={s.textFormerly}>(formerly {row.competitorFormerly})</Text>
                       )}
                     </View>
                     <View style={s.cellPlan}>
