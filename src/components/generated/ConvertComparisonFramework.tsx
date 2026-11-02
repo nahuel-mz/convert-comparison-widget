@@ -336,7 +336,7 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'convert-growth': false,
     'convert-pro': false,
     'convert-enterprise': false,
-    'opt-single': 'Not specified',
+    'opt-single': 'Not publicly stated',
     'vwo-growth': 'Unknown',
     'vwo-pro': 'Unknown',
     'vwo-enterprise': 'Unknown',
@@ -430,7 +430,7 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'convert-growth': false,
     'convert-pro': false,
     'convert-enterprise': false,
-    'opt-single': 'Not specified',
+    'opt-single': 'Not publicly stated',
     'vwo-growth': true,
     'vwo-pro': true,
     'vwo-enterprise': true,
@@ -514,7 +514,7 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'vis-pro': 'Multiple stores per account',
     'vis-scale': 'Multiple stores per account',
     'zps-free': 'N/A',
-    'zps-pro': 'Not specified',
+    'zps-pro': 'N/A',
     'zps-enterprise': 'Not specified',
     'zps-agency': 'Not specified'
   }
@@ -591,7 +591,7 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'vwo-growth': 'Unlimited',
     'vwo-pro': 'Unlimited',
     'vwo-enterprise': 'Unlimited',
-    'kam-standard': 'No — up to 10 experiments',
+    'kam-standard': false,
     'kam-enterprise': true,
     'dy-single': true,
     'ig-byo': true,
@@ -622,7 +622,7 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'vwo-growth': 'Unlimited',
     'vwo-pro': 'Unlimited',
     'vwo-enterprise': 'Unlimited',
-    'kam-standard': 'No — AI credits: 30/100/200 per mo',
+    'kam-standard': false,
     'kam-enterprise': true,
     'dy-single': true,
     'ig-byo': true,
@@ -639,8 +639,8 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'vis-scale': 'Unknown',
     'zps-free': 'N/A',
     'zps-pro': 'N/A',
-    'zps-enterprise': true,
-    'zps-agency': true
+    'zps-enterprise': 'Yes — unlimited (Full Stack)',
+    'zps-agency': 'Yes — unlimited (Full Stack)'
   }
 }, {
   attribute: 'Active goals',
@@ -671,7 +671,7 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'zps-free': '5 Goals',
     'zps-pro': '30 Goals',
     'zps-enterprise': '50 Goals',
-    'zps-agency': 'Not specified'
+    'zps-agency': 'Unknown'
   }
 }, {
   attribute: 'No. of Active Experiences',
@@ -684,7 +684,7 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'vwo-growth': 'Unlimited',
     'vwo-pro': 'Unlimited',
     'vwo-enterprise': 'Unlimited',
-    'kam-standard': 'Credit-limited',
+    'kam-standard': false,
     'kam-enterprise': 'Unlimited',
     'dy-single': 'Not specified',
     'ig-byo': 'Unlimited',
@@ -702,7 +702,7 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'zps-free': 'N/A',
     'zps-pro': 'N/A',
     'zps-enterprise': 'Unknown',
-    'zps-agency': 'Not specified'
+    'zps-agency': 'Unknown'
   }
 }, {
   attribute: 'Number of Active Projects',
@@ -1044,8 +1044,8 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'vis-launch': true,
     'vis-pro': true,
     'vis-scale': true,
-    'zps-free': true,
-    'zps-pro': true,
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
     'zps-enterprise': true,
     'zps-agency': true
   }
@@ -1075,8 +1075,8 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'vis-launch': true,
     'vis-pro': true,
     'vis-scale': true,
-    'zps-free': true,
-    'zps-pro': true,
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
     'zps-enterprise': true,
     'zps-agency': true
   }
@@ -1107,8 +1107,8 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'vis-launch': true,
     'vis-pro': true,
     'vis-scale': true,
-    'zps-free': true,
-    'zps-pro': true,
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
     'zps-enterprise': true,
     'zps-agency': true
   }
@@ -1139,8 +1139,8 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'vis-launch': true,
     'vis-pro': true,
     'vis-scale': true,
-    'zps-free': true,
-    'zps-pro': true,
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
     'zps-enterprise': true,
     'zps-agency': true
   }
@@ -1517,7 +1517,7 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'zps-free': 'Unknown',
     'zps-pro': '30 Custom dimensions',
     'zps-enterprise': '50 Custom dimensions',
-    'zps-agency': 'Not specified'
+    'zps-agency': 'Unknown'
   }
 }, {
   attribute: 'Advanced rule builder',
@@ -1684,9 +1684,9 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'convert-pro': true,
     'convert-enterprise': true,
     'opt-single': 'Yes — both',
-    'vwo-growth': true,
-    'vwo-pro': true,
-    'vwo-enterprise': true,
+    'vwo-growth': 'Bayesian & Frequentist',
+    'vwo-pro': 'Bayesian & Frequentist',
+    'vwo-enterprise': 'Bayesian & Frequentist',
     'kam-standard': false,
     'kam-enterprise': true,
     'dy-single': true,
@@ -1798,8 +1798,8 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'vis-scale': true,
     'zps-free': 'Unknown',
     'zps-pro': 'Unknown',
-    'zps-enterprise': 'Unknown',
-    'zps-agency': 'Unknown'
+    'zps-enterprise': 'Yes — Revenue goal type',
+    'zps-agency': 'Yes — Revenue goal type'
   }
 }, {
   attribute: 'Google Analytics Goal Import',
@@ -1827,8 +1827,8 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'vis-launch': true,
     'vis-pro': true,
     'vis-scale': true,
-    'zps-free': false,
-    'zps-pro': false,
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
     'zps-enterprise': false,
     'zps-agency': false
   }
@@ -1858,8 +1858,8 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
     'vis-scale': 'Unknown',
-    'zps-free': false,
-    'zps-pro': false,
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
     'zps-enterprise': false,
     'zps-agency': false
   }
@@ -2235,8 +2235,8 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'vis-launch': 'Unknown',
     'vis-pro': 'Unknown',
     'vis-scale': 'Unknown',
-    'zps-free': true,
-    'zps-pro': true,
+    'zps-free': 'Unknown',
+    'zps-pro': 'Unknown',
     'zps-enterprise': true,
     'zps-agency': true
   }
@@ -2378,7 +2378,7 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'vwo-growth': false,
     'vwo-pro': false,
     'vwo-enterprise': false,
-    'kam-standard': '1 project only',
+    'kam-standard': '1 project',
     'kam-enterprise': true,
     'dy-single': 'Not specified',
     'ig-byo': true,
@@ -2396,7 +2396,7 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'zps-free': false,
     'zps-pro': false,
     'zps-enterprise': false,
-    'zps-agency': true
+    'zps-agency': 'Yes — purpose-built for agencies'
   }
 }, {
   attribute: 'Bulk Editing',
@@ -2641,7 +2641,7 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'amp-plus': true,
     'amp-growth': true,
     'amp-enterprise': true,
-    'sl-core': true,
+    'sl-core': false,
     'sl-advanced': true,
     'sl-pro': true,
     'vis-launch': true,
@@ -2649,8 +2649,8 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'vis-scale': true,
     'zps-free': 'Unknown',
     'zps-pro': 'Unknown',
-    'zps-enterprise': true,
-    'zps-agency': true
+    'zps-enterprise': 'Yes — REST API + OAuth 2.0',
+    'zps-agency': 'Yes — REST API + OAuth 2.0'
   }
 }, {
   attribute: 'Easy One Tag Integrations',
@@ -2690,7 +2690,7 @@ const COMPARISON_DATA: ComparisonDataPoint[] = [
     'convert-growth': '90+',
     'convert-pro': '90+',
     'convert-enterprise': '90+',
-    'opt-single': '100+',
+    'opt-single': '333+',
     'vwo-growth': '~56',
     'vwo-pro': '~56',
     'vwo-enterprise': '~56',
